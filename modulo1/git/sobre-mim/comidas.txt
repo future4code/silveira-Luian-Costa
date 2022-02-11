@@ -1,0 +1,10 @@
+1-Panqueca
+2-Lasanha
+3-Churrasco
+4-Sushi
+5-Macarronada
+6-Escondidinho
+7-Strogonoff
+8-Feijoada
+9-Galinhada
+10-Peixe Assado
