@@ -41,9 +41,9 @@
 //Desafio
   let num1 = prompt("Escolha um número qualquer");
   let num2 = prompt("Escolha outro número");
-  Number(num1)
-  Number(num2)
-  let resultado = num1 + num2
+  num1 = Number(num1)
+  num2 = Number(num2)
+  let resultado = num1 + num2;
   console.log(resultado);
 
 //Segunda parte do Desafio
