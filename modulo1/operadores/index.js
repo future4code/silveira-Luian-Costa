@@ -51,3 +51,17 @@ console.log("O primeiro número é maior que o segundo?", numero1 > numero2);
 console.log("O primeiro número é igual ao segundo?", numero1 === numero2);
 console.log("O primeiro número é divisível pelo segundo?", (numero1 % numero2) === 0);
 console.log("O segundo número é divisível pelo primeiro?", (numero2 % numero1) === 0);
+
+//Desafio
+
+//2.
+let kWHora = Number(prompt("Informe a quantidade de quilowatt-hora"))
+
+//A
+console.log("O consumo de energia de 280 KW/H é de R$", 280 * 0.05)
+
+//B
+let descontoValor = Number(prompt("Insira a % de desconto"));
+let desconto1 = kWHora * 0.05;
+let desconto2 = (desconto1 * descontoValor) / 100;
+console.log("O valor com desconto é de:", desconto2);
