@@ -41,16 +41,12 @@
 //Desafio
   let num1 = prompt("Escolha um número qualquer");
   let num2 = prompt("Escolha outro número");
-  num1 = Number(num1)
-  num2 = Number(num2)
-  let resultado = num1 + num2;
+  let resultado = Number(num1) + Number(num2);
   console.log(resultado);
 
 //Segunda parte do Desafio
 
   let num3 = prompt("Escolha um número qualquer");
   let num4 = prompt("Escolha outro número");
-  Number(num3)
-  Number(num4)
-  let resultado2 = num3 * num4;
+  let resultado2 = Number(num3) * Number(num4);
   console.log(resultado2);
