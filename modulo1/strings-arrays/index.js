@@ -56,9 +56,12 @@ console.log(listaDeTarefas); //Imprime a lista novamente com a tarefa removida
 //1.
 
 const frase = prompt("Escreva uma frase");
+let fraseSplitada = frase.split(" ");
+
+console.log(fraseSplitada);
 
 //2.
 
 const frutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"];
 
-console.log(frutas.inddexOf,frutas.lenght);
+console.log(frutas.indexOf("Abacaxi"), frutas.lenght);
