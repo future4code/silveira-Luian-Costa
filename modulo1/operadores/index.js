@@ -70,14 +70,21 @@ console.log("80 Graus Celsius é equivalente à:", grausFahrenheit, "Fahrenheit"
 
 let grausCelsius2 = 30;
 grausFahrenheit = grausCelsius2 * (9/5) + 32;
-kelvin = grausCelsius2 + 273
+kelvin = grausCelsius2 + 273;
 console.log("30 Graus Celsius é equivalente à", grausFahrenheit,"Fahrenheit e à", kelvin,"Kelvin");
 
+//D) Insira o valor em graus Celsius que deseja converter
+
+let grausCelsiusInserido = Number(prompt("Insira o valor em Graus Celsius que deseja converter"));
+grausFahrenheit = grausCelsiusInserido * (9/5) + 32;
+kelvin = grausCelsiusInserido + 273;
+console.log(grausCelsiusInserido, "Graus Celsius é equivalente à" , grausFahrenheit,"Fahrenheit, e à", kelvin,"Kelvin");
+
 //2-
-let kWHora = Number(prompt("Informe a quantidade de quilowatt-hora"))
+let kWHora = Number(prompt("Informe a quantidade de quilowatt-hora"));
 
 //A
-console.log("O consumo de energia de 280 KW/H é de R$", 280 * 0.05)
+console.log("O consumo de energia de 280 KW/H é de R$", 280 * 0.05);
 
 //B
 let descontoValor = Number(prompt("Insira a % de desconto"));
