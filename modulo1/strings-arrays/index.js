@@ -51,3 +51,14 @@ const tarefaRealizada = Number(prompt("Qual o numero da tarefa que você já rea
 listaDeTarefas.splice(tarefaRealizada -1 , 1); //Remove a tarefa declarada com o ajuste de índice
 
 console.log(listaDeTarefas); //Imprime a lista novamente com a tarefa removida
+
+//Desafio
+//1.
+
+const frase = prompt("Escreva uma frase");
+
+//2.
+
+const frutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"];
+
+console.log(frutas.inddexOf,frutas.lenght);
