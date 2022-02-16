@@ -54,7 +54,26 @@ console.log("O segundo número é divisível pelo primeiro?", (numero2 % numero1
 
 //Desafio
 
-//2.
+//1-A) Graus Fahrenheit(°F) para Kelvin(K)
+
+let grausFahrenheit = 77;
+kelvin = (grausFahrenheit - 32)*(5/9) + 273.15;
+console.log("77 Fahrenheit é equivalente à:", kelvin, "Kelvin");
+
+//B) Graus Celsius(°C) para Graus Fahrenheit (°F)
+
+let grausCelsius = 80;
+grausFahrenheit = grausCelsius * (9/5) + 32;
+console.log("80 Graus Celsius é equivalente à:", grausFahrenheit, "Fahrenheit");
+
+//C) Graus Celsius(°C) para Graus Fahrenheit (°F) e para Kelvin(K)
+
+let grausCelsius2 = 30;
+grausFahrenheit = grausCelsius2 * (9/5) + 32;
+kelvin = grausCelsius2 + 273
+console.log("30 Graus Celsius é equivalente à", grausFahrenheit,"Fahrenheit e à", kelvin,"Kelvin");
+
+//2-
 let kWHora = Number(prompt("Informe a quantidade de quilowatt-hora"))
 
 //A
