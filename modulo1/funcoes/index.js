@@ -86,3 +86,20 @@ function multiplicarNumero(numero1, numero2){
     console.log("Multiplicação: ", multiplicacao);
 }
 multiplicarNumero(numero1, numero2);
+
+//Desafio
+
+//1.A)
+
+const arrowFunction = (parametro) => {console.log(parametro)};
+arrowFunction("parâmetro");
+
+//B
+
+const arrowFunction2 = (parametro1, parametro2) => {console.log(parametro1 + parametro2)};
+arrowFunction2(10, 10);
+
+//2.
+
+const teoremaPitagoras = (a, b) => {return ((a * a) + (b * b))**0.5};
+console.log(teoremaPitagoras(5, 10));
