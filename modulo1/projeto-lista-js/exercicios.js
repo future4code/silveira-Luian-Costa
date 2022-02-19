@@ -31,7 +31,7 @@ function calculaAreaRetangulo() {
 function imprimeIdade() {
   // implemente sua lógica aqui
   const anoAtual = Number(prompt("Qual o ano atual"));
-  const anoDeNascimento = Number(prompt("Qual a sua idade?"));
+  const anoDeNascimento = Number(prompt("Qual o seu ano de nascimento?"));
   const calculoAno = (anoAtual - anoDeNascimento);
 
   console.log(calculoAno);
