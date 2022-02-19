@@ -112,7 +112,6 @@ function trocaPrimeiroEUltimo(array) {
   array.push(primeiroNum);
   return array;
 
-
 }
 
 // EXERCÍCIO 12
@@ -126,16 +125,45 @@ function checaIgualdadeDesconsiderandoCase(string1, string2) {
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
 
+  const perguntaAno = Number(prompt("Qual o ano atual?"));
+  const perguntaNascimento = Number(prompt("Qual seu ano de nascimento?"));
+  const perguntaRG = Number(prompt("Em qual ano sua carteira de identidade foi emitida?"));
+  const renovar = perguntaAno - perguntaRG;
+
+  if(perguntaAno - perguntaNascimento <= 20 && renovar >= 5){
+    console.log(true);
+  }else if(perguntaAno - perguntaNascimento > 20 && perguntaAno - perguntaNascimento <=50 && renovar >=10){
+    console.log(true);
+  }else if(perguntaAno - perguntaNascimento > 50 && renovar >=15){
+    console.log(true);
+  }else{
+    console.log(false);
+  }
+
 }
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
+  let anoBissexto = ano % 4;
+  let anoBissexto2 = ano % 100;
+  let anoBissexto3 = ano % 400;
+  
+  if(anoBissexto == 0 && anoBissexto2 != 0 || anoBissexto3 == 0){
+    return true;
+  }else{
+    return false;
+  }
 
 }
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
+const idadeLabenu = prompt("Você tem mais de 18 anos?");
+const ensinoMedio = prompt("Você possui ensino médio completo?");
+const disponibilidade = prompt("Você possui disponibilidade exclusiva durante os horários do curso?");
+
+console.log(idadeLabenu === "sim" && ensinoMedio === "sim" && disponibilidade === "sim");
 
 }
