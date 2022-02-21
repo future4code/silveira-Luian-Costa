@@ -29,7 +29,7 @@ console.log(`Eu sou ${objeto.nome}, mas pode me chamar de: ${objeto.apelidos[0]}
 //B)
 
 const pessoaNova = {...pessoaObjeto, apelidos:["Lululul", " ULULUL", " WABALUBDUBDUB"]};
-console.log(imprimePessoa(pessoaNova));
+imprimePessoa(pessoaNova);
 
 //2.A) 
 
