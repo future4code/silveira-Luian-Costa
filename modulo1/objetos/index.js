@@ -60,7 +60,7 @@ const fruta = {
 }
 const fruta2 = {
     nome: "Banana",
-    disponibilidade: true
+    disponibilidade: false
 }
 const fruta3 = {
     nome: "Morango",
@@ -74,3 +74,45 @@ sacolaoFeira(fruta);
 sacolaoFeira(fruta2);
 sacolaoFeira(fruta3);
 console.log(carrinho);
+
+//Desafio
+
+//1
+
+function perguntaUsuario(){    
+    const dadosUsuario = {
+        nome : prompt("Qual seu nome?"),
+        idade: prompt("Qual sua idade?"),
+        profissao: prompt("Qual sua profissão?")
+    }
+    console.log(dadosUsuario, typeof dadosUsuario)
+}
+perguntaUsuario();
+
+//2
+
+const filme1 = {
+    nome : "Blade Runner 2049",
+    lancamento : 2017
+}
+const filme2 = {
+    nome : "Matrix",
+    lancamento : 1999
+}
+
+function confereFilme(objetoF1, objetoF2){
+
+console.log(`${objetoF1.nome} foi lançado antes de ${objetoF2.nome}? ${objetoF1.lancamento < objetoF2.lancamento}.
+${objetoF1.nome} foi lançado no mesmo ano de ${objetoF2.nome}? ${objetoF1.lancamento === objetoF2.lancamento}.`);
+
+}
+
+confereFilme(filme1, filme2);
+
+//3
+
+function controleEstoqueFruta (fruta){
+    return fruta = !fruta.disponibilidade 
+
+}
+console.log(controleEstoqueFruta(fruta));
