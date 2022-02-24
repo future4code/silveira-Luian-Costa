@@ -40,9 +40,13 @@ for (let i = 0; i<array.length; i++){
     console.log(array[i]);
 };
 
+//B)
+
 for (let i = 0; i<array.length; i++){
     console.log(array[i]/10);
 }
+
+//C)
 
 for (let i of array){
 
@@ -53,6 +57,8 @@ for (let i of array){
     }console.log(novoArray);
     
 };
+
+//D)
 
 let arrayString = [];
 
@@ -76,3 +82,27 @@ for (let numero of array){
         maximo = numero;
     }
 }console.log(`O maior número é ${maximo} e o menor é ${minimo}.`);
+
+//Desafio
+
+const numeroJogo = Math.floor(Math.random() * (100 - 1)) + 1;
+let tentativas = 0;
+
+console.log("Vamos jogar!");
+
+do{
+    var chute = +prompt("Chute um número de 1 a 100");
+    if(chute < numeroJogo){
+        console.log(`O número chutado foi: ${chute}. Errou, O número escolhido é menor!`);
+    }
+    if(chute > numeroJogo){
+        console.log(`O número chutado foi: ${chute}. Errou. O número escolhido é maior!`);
+    }
+    tentativas++;
+}
+while(chute !== numeroJogo); console.log("Acertou!");
+console.log(`O número de tentativas foi ${tentativas}.`);
+
+//2. A alteração foi até simples de se fazer, pois utilizei de materiais externos para pesquisar sobre a nova sintaxe, onde substituí um prompt por um gerador de numero aleatório
+
+// O que realmente foi difícil foi a construção de um loop otimizado rs
