@@ -24,7 +24,7 @@ const jogarBlackjack = () => {
    const pontuacaoUsuario = cartaUsuario1.valor + cartaUsuario2.valor; //Pontuação de cartas
    const pontuacaoComputador = cartaComputador1.valor + cartaComputador2.valor; //Pontuação de cartas
 
-   console.log(`Usuário - cartas: ${cartaUsuario1, cartaUsuario2} - ${pontuacaoUsuario}\nComputador - cartas: ${cartaComputador1, cartaComputador2} - ${pontuacaoComputador}`); //Imprime cartas + pontuação
+   console.log(`Usuário - cartas: ${cartaUsuario1.texto} ${cartaUsuario2.texto} - ${pontuacaoUsuario}\nComputador - cartas: ${cartaComputador1.texto} ${cartaComputador2.texto} - ${pontuacaoComputador}`); //Imprime cartas + pontuação
   
    if (pontuacaoUsuario === pontuacaoComputador){
       console.log("Empate!")
