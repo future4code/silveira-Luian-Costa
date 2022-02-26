@@ -13,9 +13,8 @@
 
 console.log("Boas vindas ao jogo de Blackjack!");
 
-const jogarBlackjack = () => {
+while(confirm("Quer iniciar uma nova rodada?")){
 
- if(confirm("Quer iniciar uma nova rodada?")){
    const cartaUsuario1 = comprarCarta();
    const cartaComputador1 = comprarCarta();
    const cartaUsuario2 = comprarCarta();
@@ -33,8 +32,7 @@ const jogarBlackjack = () => {
    }else if (pontuacaoComputador > pontuacaoUsuario){
       console.log("O Computador ganhou!");
    }
- }else{
    console.log("O jogo acabou");
- }
+
+   confirm("Quer jogar novamente?");
 }
-jogarBlackjack();
