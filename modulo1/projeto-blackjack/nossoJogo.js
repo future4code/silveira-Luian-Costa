@@ -26,7 +26,7 @@ while(confirm("Quer iniciar uma nova rodada?")){
    console.log(`Usuário - cartas: ${cartaUsuario1.texto} ${cartaUsuario2.texto} - ${pontuacaoUsuario}\nComputador - cartas: ${cartaComputador1.texto} ${cartaComputador2.texto} - ${pontuacaoComputador}`); //Imprime cartas + pontuação
   
    if (pontuacaoUsuario === pontuacaoComputador){
-      console.log("Empate!")
+      console.log("Empate!");
    }else if (pontuacaoUsuario > pontuacaoComputador){
       console.log("O Usuário ganhou!");
    }else if (pontuacaoComputador > pontuacaoUsuario){

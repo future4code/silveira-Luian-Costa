@@ -11,30 +11,43 @@
  * 
  */
 
-const cartasUsuario = [comprarCarta(), comprarCarta()];
-const cartasComputador = [comprarCarta(), comprarCarta()];
+console.log("Boas vindas ao jogo de BlackJack!");
 
-do{confirm("Quer iniciar uma nova rodada?")
-if (confirm) {
-   if (cartasUsuario[0].texto.indexOf("A") === "A" && cartasUsuario[1].texto.indexOf("A") === "A" || cartasComputador[0].texto.indexOf("A") === "A" && cartasComputador[1].texto.indexOf("A") === "A")
-      cartasUsuario.pop(), cartasUsuario.pop(), cartasComputador.pop(), cartasComputador.pop()
-   var comprarCarta1 = () => confirm(`Suas cartas são ${cartasUsuario[0].texto, cartasUsuario[1].texto}. A carta revelada do computador é ${cartasComputador[0].texto}.\nDeseja comprar mais uma carta?`);   ;
- }
+if(confirm("Quer iniciar uma nova rodada?")){
+  let cartasUsuario
+  let cartaComputador
+
+  do {
+   cartasUsuario = [comprarCarta(), comprarCarta()]; 
+   cartasComputador = [comprarCarta(), comprarCarta()];
+
+  }while (pontuacaoCartas(cartasUsuario) === 22 || pontuacaoCartas(cartasComputador) === 22);
+
+  while(pontuacaoCartas(cartasUsuario) <= 21){
+     if(confirm(`Suas cartas são ${mostrarCarta(cartasUsuario)}. A carta revelada do computador é ${cartasComputador[0].texto}\nDeseja comprar mais uma carta?`)){
+        cartasUsuario.push(comprarCarta());
+     }else{
+        break;
+     }
+  }
+  if(pontuacaoCartas(cartasUsuario) > pontuacaoCartas(cartasComputador) && pontuacaoCartas(cartasUsuario) <=21 || pontuacaoCartas(cartasComputador) >21){
+     alert("O usuário ganhou!");
+  }else if(pontuacaoCartas(cartasUsuario) < pontuacaoCartas(cartasComputador) && pontuacaoCartas(cartasComputador) <=21 || pontuacaoCartas(cartasUsuario) >21){
+     alert("O Computador ganhou!");
+  }else if(pontuacaoCartas(cartasUsuario) == pontuacaoCartas(cartasComputador)){
+     alert("Empate!");
+  }
+}else{
+  alert("O jogo acabou!");
+
 }
-while(cartasUsuario < 21){
-   cartasUsuario.push(comprarCarta1());
- }
 
-alert(`Suas cartas são ${cartasUsuario}. A carta revelada do computador é ${cartasComputador[0].texto}.`);
+//Funções
 
-console.log(`Cartas Jogador: ${cartasUsuario}\nPontos Computador: ${cartasComputador[0].valor} + ${cartasComputador[1].valor}\nCartas Computador: ${cartasComputador[0].texto} ${cartasComputador[1].texto}\nPontos Jogador: ${cartasUsuario[0]}\nPontos Computador: ${cartasUsuario[1]}.`);
+function pontuacaoCartas(cartas){
+   return cartas.reduce((soma, item) => soma += item.valor, 0);
+}
 
-function veririfica21(cartasUsuario, cartasComputador){
-   if ((cartasComputador > cartasUsuario) < 22) {
-      return console.log("Você venceu!");
-   } else if ((cartasComputador < cartasUsuario) < 22) {
-      return console.log("O Computador venceu!");
-   } else if (cartasComputador === cartasComputador) {
-      return console.log("Empate!");
-   }
+function mostrarCarta(cartas){
+   return cartas.reduce((soma, item) => soma += item.texto + ' ', '').slice(0, -1);
 }
