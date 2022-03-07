@@ -5,48 +5,70 @@
 
 // EXERCÍCIO 01
 function retornaTamanhoArray(array) {
-   return array.length;
+   return array.length
 }
 
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
-  return array.reverse();
+  return array.reverse()
 }
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  return array.sort((a, b) => a- b);
+  return array.sort((a,b) => a-b)
 }
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-   return array.filter((array) => array %2 == 0);
-   
+  return array.filter((array) => array % 2 === 0)
 }
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+  let numerosPares = [];
+  for(let num of array){
+      if(num % 2 === 0){
+          num = num * num
+          numerosPares.push(num)
+      }
+  }return numerosPares
 }
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+  return Math.max(...array)
 }
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
+  const objeto = { 
+    maiorNumero : Math.max(num1,num2),
+    maiorDivisivelPorMenor : (Math.max(num1,num2) % Math.min(num1,num2)) == 0,
+    diferenca : Math.max(num1,num2) - Math.min(num1,num2),
+ }
+ return objeto
 }
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-   
+  let primeirosPares = [];
+   for(let i = 0; primeirosPares.length < n; i++){
+       if(i % 2 == 0){
+           primeirosPares.push(i);
+       }
+   }
+  return primeirosPares
 }
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+  if(ladoA === ladoB && ladoA === ladoC && ladoB === ladoC){
+      return "Equilátero"
+  }else if(ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC){
+      return "Escaleno"
+  }else{
+      return "Isósceles"
+  }
 }
 
 // EXERCÍCIO 10
