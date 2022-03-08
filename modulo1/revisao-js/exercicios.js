@@ -136,11 +136,12 @@ function retornaContasComSaldoAtualizado(contas) {
 // EXERCÍCIO 15A
 
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-    return consultas.sort((item1, item2) => (item1.nome, item2.nome));
+    let collator = new Intl.Collator();
+    return consultas.sort((item1, item2) => collator.compare(item1.nome, item2.nome));
 }
 
 // EXERCÍCIO 15B
 
 function retornaArrayOrdenadoPorData(consultas) {
-   
+ 
 }
