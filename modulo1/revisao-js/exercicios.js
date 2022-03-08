@@ -73,17 +73,28 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+   let novoArray = array.sort((a,b) => a-b);
+   return [novoArray[novoArray.length - 2], novoArray[1]]
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+    const chamadaFilme = {
+        nome: 'O Diabo Veste Prada',
+        ano: 2006,
+        diretor: 'David Frankel',
+        atores: ['Meryl Streep', ' Anne Hathaway', ' Emily Blunt', ' Stanley Tucci']
+     }
+return `Venha assistir ao filme ${chamadaFilme.nome}, de ${chamadaFilme.ano}, dirigido por ${chamadaFilme.diretor} e estrelado por ${chamadaFilme.atores}.`
 }
+
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
+   return novoObjeto = {
+       ...pessoa,
+       nome: "ANÔNIMO"
+   }
 }
 
 // EXERCÍCIO 13A
