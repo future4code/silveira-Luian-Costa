@@ -1,0 +1,101 @@
+.inicio{
+    color: white ;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+.inicio2{
+    color: white ;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 15px;
+    border-radius: 20px;
+}
+.inicio3{
+    color: white ;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 25px;
+    border-radius: 20px;
+}
+.inicio4{
+    color: white ;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 25px;
+    border-radius: 20px;
+}
+.inicio5{
+    color: white ;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 25px;
+    border-radius: 20px;
+}
+.bottom{
+    color: white;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+.bottom1{
+    color: white;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+.bottom2{
+    color: white;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+.bottom3{
+    color: white;
+    background: rgb(61, 2, 41);
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+#icon1{
+   height: 25px;
+   width: 25px;
+}
+#icon2{
+   height: 25px;
+   width: 25px;
+}
+#icon3{
+   height: 25px;
+   width: 25px;
+}
+.adc-produto{
+   color: white ;
+   background: rgb(61, 2, 41);
+   text-align: center;
+   padding: 15px;
+}
+.funcionarios{
+   color: white ;
+   background: rgb(61, 2, 41);
+   text-align: center;
+   padding: 15px;
+   border-radius: 20px;
+}
+body{
+    background-color: rgb(175, 162, 173);
+}
+button{
+    background-color: rgba(175, 162, 173);
+    color: rgb(0, 0, 0);
+}
+a{
+    color: rgb(0, 0, 0);
+}
+header{
+    background: rgb(175, 162, 173);
+}
