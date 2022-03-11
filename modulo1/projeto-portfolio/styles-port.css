@@ -1,0 +1,45 @@
+*{
+    font-family: 'Fredoka', sans-serif;
+    background: rgb(255, 255, 255);
+}
+body{
+    height: 100%;
+    margin: 0;
+}
+.bg{
+    background-image: url("foto-background.jpg");
+    background-repeat: no-repeat ;
+    background-size: cover;
+}
+.lado-esquerdo{
+    float: left ;
+    padding: 75px 55px 50px 65px;
+    text-align: center;
+}
+.projetos{
+    float: right !important;
+}
+.botao-form{
+    border-radius: 12px;
+
+}
+.botao-enviar{
+    border-radius: 12px;
+
+}
+.botao-form:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); 
+    color: rgb(0, 0, 0);
+}
+.botao-enviar:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    color: rgb(0, 0, 0);
+}
+.img-background{
+    float: right !important;
+    
+}
+.form-a{
+    text-align: center;
+    width: 60px;
+}
