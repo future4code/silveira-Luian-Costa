@@ -1,45 +1,69 @@
 *{
-    font-family: 'Fredoka', sans-serif;
-    background: rgb(255, 255, 255);
-}
-body{
-    height: 100%;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
 }
-.bg{
-    background-image: url("foto-background.jpg");
-    background-repeat: no-repeat ;
+header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(img-port/foto-background.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
 }
-.lado-esquerdo{
-    float: left ;
-    padding: 75px 55px 50px 65px;
-    text-align: center;
+a{
+    text-decoration: none;
 }
-.projetos{
-    float: right !important;
+header .menu{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
 }
-.botao-form{
-    border-radius: 12px;
+header .menu li{
+    display: inline-block;
+}
+header .menu a{
+    color: white;
+    padding: 8px 12px;
+    border-radius: 3px;
+    transition: 250ms;
+}
+header .menu .ativo, header .menu a:hover{
+ color: #444;   
+ background-color: white;
 
 }
-.botao-enviar{
-    border-radius: 12px;
-
+.principal{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.botao-form:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); 
-    color: rgb(0, 0, 0);
+.principal h2{
+    color: white;
+    font-size: 50px;
 }
-.botao-enviar:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    color: rgb(0, 0, 0);
-}
-.img-background{
-    float: right !important;
-    
-}
-.form-a{
+.principal .descricao{
+    color: white;
     text-align: center;
-    width: 60px;
+    font-size: 20px;
+}
+.icon{
+    width: 40px;
+    border-radius: 10%;
+    padding: 1px;
+    display: inline-block;   
+}
+.projetos1{
+    width: 600px;
+}
+.projetos2{
+    width: 600px;
+}
+.form{
+    color: white;
 }
