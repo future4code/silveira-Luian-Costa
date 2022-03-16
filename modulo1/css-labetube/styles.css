@@ -4,7 +4,7 @@
 }
 header{
     display: flex;
-    background-color: gray;
+    background-color: rgb(255, 145, 0);
     justify-content: space-between;
     align-items: center;
     height: 70px;
@@ -18,11 +18,14 @@ header{
     margin-left: 20px;
     font-size: 15px;
 }
-main{  
-    background-color: peachpuff;
+main{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(255, 255, 255);
 }
 footer{
-    background-color: gray;
+    background-color: darkgray;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,4 +36,5 @@ footer{
     width: 400px;
     height: 400px;
     padding: 30px;
+    align-items: center;
 }
