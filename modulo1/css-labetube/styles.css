@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    background-color: rgb(255, 145, 0);
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+.search{
+    height: 35px;
+    width: 250px;
+    margin-right: 20px;
+}
+.titulo{
+    margin-left: 20px;
+    font-size: 15px;
+}
+main{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(255, 255, 255);
+}
+footer{
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    font-size: 20px;
+}
+.galeria{
+    width: 400px;
+    height: 400px;
+    padding: 30px;
+    align-items: center;
+}
