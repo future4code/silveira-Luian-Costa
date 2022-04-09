@@ -4,7 +4,9 @@ export default class CriarPlaylists extends React.Component{
     render(){
         return(
             <div>
-                Tela da Criação de Playlist
+                <h1>Tela da Criação de Playlist</h1>
+                <button onClick={this.props.irParaHome}> Home </button>
+                <button onClick={this.props.irParaTelaPlaylists}> Playlists </button>
             </div>
         )
     }
