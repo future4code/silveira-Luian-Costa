@@ -36,9 +36,9 @@ const Div = styled.div`
       }
 `
 
-export default class TelaPrincipal extends React.Component{
-    render(){
-        return(
+export default class TelaPrincipal extends React.Component {
+    render() {
+        return (
             <ContainerDiv>
                 <Div>
                     <h1>Labefy</h1>

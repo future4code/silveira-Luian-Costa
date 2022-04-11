@@ -44,13 +44,13 @@ const Div = styled.div`
     }
 `
 
-export default class CriarPlaylists extends React.Component{
-    state ={
-        nomePlaylist: "" 
+export default class CriarPlaylists extends React.Component {
+    state = {
+        nomePlaylist: ""
     }
 
     guardaNomePlaylist = (e) => {
-        this.setState({nomePlaylist: e.target.value});
+        this.setState({ nomePlaylist: e.target.value });
     }
 
     CriarPlaylist = () => {
@@ -59,28 +59,28 @@ export default class CriarPlaylists extends React.Component{
             name: this.state.nomePlaylist
         }
 
-    axios.post(url, body, {
-        headers: {
-            Authorization: "luian-costa-silveira"
-        }
-    })
-    .then((res) =>{
-        alert("Playlist criada com sucesso!");
-        this.setState({nomePlaylist: ""}); //limpa nome da playlist após criação
-    })
+        axios.post(url, body, {
+            headers: {
+                Authorization: "luian-costa-silveira"
+            }
+        })
+            .then((res) => {
+                alert("Playlist criada com sucesso!");
+                this.setState({ nomePlaylist: "" }); //limpa nome da playlist após criação
+            })
 
-    .catch((err) => {
-        alert("Ocorreu um erro. Tente novamente");
-    })
-}
+            .catch((err) => {
+                alert("Ocorreu um erro. Tente novamente");
+            })
+    }
 
-    render(){
-        return(
+    render() {
+        return (
             <ContainerDiv>
                 <Div>
                     <h1>Criar Playlist</h1>
                     <input placeholder="Nome da Playlist" value={this.state.nomePlaylist} onChange={this.guardaNomePlaylist}></input>
-                    <button onClick={this.CriarPlaylist}> Criar </button> 
+                    <button onClick={this.CriarPlaylist}> Criar </button>
                     <button onClick={this.props.irParaHome}> Home </button>
                     <button onClick={this.props.irParaTelaPlaylists}> Playlists </button>
                 </Div>

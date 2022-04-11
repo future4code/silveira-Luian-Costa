@@ -56,82 +56,82 @@ const headers = {
 }
 const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.idPlayList}/tracks`
 
-export default class DetalhesPlaylist extends React.Component{
-    state ={
+export default class DetalhesPlaylist extends React.Component {
+    state = {
         musica: '',
-        artista:'',
-        url:'',
-        detalhes:[]
+        artista: '',
+        url: '',
+        detalhes: []
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.detalhesPlaylist();
-}
+    }
 
     nomeMusica = (e) => {
-        this.setState({musica: e.target.value});
-}
+        this.setState({ musica: e.target.value });
+    }
     nomeArtista = (e) => {
-        this.setState({artista: e.target.value});
-}
+        this.setState({ artista: e.target.value });
+    }
     linkUrl = (e) => {
-        this.setState({url: e.target.value});
- }
+        this.setState({ url: e.target.value });
+    }
 
     adicionaMusica = () => {
         axios.post(url, body, headers)
-    .then((res) => {
-        this.setState({musica:'', artista:'', url:''})
-    })
-    .catch((err) => {
-        alert("Ocorreu um erro. Tente novamente.")
-    })
-}
+            .then((res) => {
+                this.setState({ musica: '', artista: '', url: '' })
+            })
+            .catch((err) => {
+                alert("Ocorreu um erro. Tente novamente.")
+            })
+    }
 
     detalhesPlaylist = () => {
         axios.get(url, headers)
-    .then((res) => {
-        this.setState({detalhes: res.data.result.tracks});
-    })
-    .catch((err) => {
-        alert("Ocorreu um erro. Tente novamente.");
-    })
-}
+            .then((res) => {
+                this.setState({ detalhes: res.data.result.tracks });
+            })
+            .catch((err) => {
+                alert("Ocorreu um erro. Tente novamente.");
+            })
+    }
 
-    render(){
+    render() {
         const detalhes = this.state.detalhes.map((mostra) => {
-            return(
+            return (
                 <div key={mostra.id}>
                     <p>Música:{mostra.nome}</p>
                     <p>Artista:{mostra.artista}</p>
                 </div>
             )
         })
-    return(
-        <ContainerDiv>
-        <Div>
-                <h1>Musicas</h1>
-                <input
-                    placeholder={"Nome da Música"}
-                    value={this.state.musica}
-                    onChange={this.nomeMusica}
-                />
-                <input
-                    placeholder={"Nome do Artista"}
-                    value={this.state.artista}
-                    onChange={this.nomeArtista}
-                />
-                <input
-                    placeholder={"Url da Música"}
-                    value={this.state.url}
-                    onChange={this.linkUrl}
-                />
-                <button onClick={this.adicionaMusica}>Adicionar</button>
-                <h2>Detalhes da Playlist</h2>
+        return (
+            <ContainerDiv>
+                <Div>
+                    <h1>Musicas</h1>
+                    <input
+                        placeholder={"Nome da Música"}
+                        value={this.state.musica}
+                        onChange={this.nomeMusica}
+                    />
+                    <input
+                        placeholder={"Nome do Artista"}
+                        value={this.state.artista}
+                        onChange={this.nomeArtista}
+                    />
+                    <input
+                        placeholder={"Url da Música"}
+                        value={this.state.url}
+                        onChange={this.linkUrl}
+                    />
+                    <button onClick={this.adicionaMusica}>Adicionar</button>
+                    <h2>Detalhes da Playlist</h2>
                     {detalhes}
-                <button onClick={this.props.irParaHome}> Home </button>
-        </Div>
-        </ContainerDiv>
+                    <button onClick={this.props.irParaHome}> Home </button>
+                </Div>
+            </ContainerDiv>
         )
     }
 }

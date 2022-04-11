@@ -4,46 +4,48 @@ import CriarPlaylists from './components/CriarPlaylist';
 import TelaPlaylists from './components/TelaPlaylists';
 import DetalhesPlaylist from './components/DetalhesPlaylist';
 
-export default class App extends React.Component{
+export default class App extends React.Component {
   state = {
     telaAtual: "telaPrincipal",
+    idPlaylist: "",
+    namePlaylist: "",
   }
 
   escolheTela = () => {
-    switch (this.state.telaAtual){
+    switch (this.state.telaAtual) {
       case "telaPrincipal":
-        return <TelaPrincipal irParaCriarPlaylists={this.irParaCriarPlaylists} irParaTelaPlaylists={this.irParaTelaPlaylists}/>
+        return <TelaPrincipal irParaCriarPlaylists={this.irParaCriarPlaylists} irParaTelaPlaylists={this.irParaTelaPlaylists} />
       case "telaPlaylists":
-        return <TelaPlaylists irParaHome={this.irParaHome} irParaCriarPlaylists={this.irParaCriarPlaylists}/>
+        return <TelaPlaylists irParaHome={this.irParaHome} irParaCriarPlaylists={this.irParaCriarPlaylists} />
       case "criarPlaylists":
-        return <CriarPlaylists irParaHome={this.irParaHome} irParaTelaPlaylists={this.irParaTelaPlaylists}/>
+        return <CriarPlaylists irParaHome={this.irParaHome} irParaTelaPlaylists={this.irParaTelaPlaylists} />
       case "detalhes":
-        return <DetalhesPlaylist irParaHome={this.irParaHome}/>
+        return <DetalhesPlaylist idPlayList={this.state.idPlayList} namePlaylist={this.state.namePlaylist} irParaHome={this.irParaHome} />
       default:
         return <>Erro! Página não encontrada:(</>
     }
   }
 
   irParaTelaPlaylists = () => {
-    this.setState({telaAtual: "telaPlaylists"})
+    this.setState({ telaAtual: "telaPlaylists" })
   }
 
   irParaCriarPlaylists = () => {
-    this.setState({telaAtual: "criarPlaylists"})
+    this.setState({ telaAtual: "criarPlaylists" })
   }
 
   irParaHome = () => {
-    this.setState({telaAtual: "telaPrincipal"})
+    this.setState({ telaAtual: "telaPrincipal" })
   }
-  irParaDetalhes = () => {
-    this.setState({telaAtual: "detalhes"})
+  irParaDetalhes = (id, name) => {
+    this.setState({ telaAtual: "detalhes", idPlayList: id, namePlaylist: name })
   }
- 
 
-  render(){
+
+  render() {
     return (
       <>
-      {this.escolheTela()}
+        {this.escolheTela()}
       </>
     )
   }

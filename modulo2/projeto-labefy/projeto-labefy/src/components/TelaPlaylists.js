@@ -48,8 +48,8 @@ const DivMusicas = styled.div`
 
 `
 
-export default class TelaPlaylists extends React.Component{
-    state ={
+export default class TelaPlaylists extends React.Component {
+    state = {
         mostrar: []
     }
 
@@ -64,13 +64,13 @@ export default class TelaPlaylists extends React.Component{
                 Authorization: "luian-costa-silveira"
             }
         })
-    .then((res) => {
-        this.setState({mostrar: res.data.result.list});
-    })
-    .catch((err) => {
-        alert("Ocorreu um erro. Tente novamente.");
-    })
-}
+            .then((res) => {
+                this.setState({ mostrar: res.data.result.list });
+            })
+            .catch((err) => {
+                alert("Ocorreu um erro. Tente novamente.");
+            })
+    }
 
     deletarPlaylist = (id) => {
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
@@ -79,16 +79,16 @@ export default class TelaPlaylists extends React.Component{
                 Authorization: "luian-costa-silveira"
             }
         })
-    .then((res) => {
-        alert("Playlist apagada com sucesso")
-        this.mostraPlaylist();
-    })
-    .catch((err) => {
-        alert("Ocorreu um erro. Tente novamente.");
-    })
-}
+            .then((res) => {
+                alert("Playlist apagada com sucesso")
+                this.mostraPlaylist();
+            })
+            .catch((err) => {
+                alert("Ocorreu um erro. Tente novamente.");
+            })
+    }
 
-    render(){
+    render() {
         const playlistNaTela = this.state.mostrar.map((musicas) => {
             return <div key={musicas.id}>
                 <DivMusicas>
@@ -98,17 +98,17 @@ export default class TelaPlaylists extends React.Component{
             </div>
         })
 
-        return(
+        return (
             <ContainerDiv>
-            <Div>
-                <h1> Playlists </h1>
-                <DivElementos>    
-                    {playlistNaTela}
-                </DivElementos>
-                <button onClick={this.props.irParaHome}> Home </button>
-                <button onClick={this.props.irParaCriarPlaylists}> Criar Playlist </button>
-                <button onClick={this.props.DetalhesPlaylist}> Detalhes </button>
-            </Div>
+                <Div>
+                    <h1> Playlists </h1>
+                    <DivElementos>
+                        {playlistNaTela}
+                    </DivElementos>
+                    <button onClick={this.props.irParaHome}> Home </button>
+                    <button onClick={this.props.irParaCriarPlaylists}> Criar Playlist </button>
+                    <button onClick={this.props.DetalhesPlaylist}> Detalhes </button>
+                </Div>
             </ContainerDiv>
         )
     }
