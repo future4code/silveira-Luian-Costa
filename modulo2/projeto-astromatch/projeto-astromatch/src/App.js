@@ -1,22 +1,30 @@
-import './App.css';
+import React, {useState} from "react";
+import Home from './components/Home/Home.js'
+import Matches from './components/Matches/Matches.js'
 
 export default function App() {
+
+  const [home, setPagina] = useState('tela')
+
+  const irParaHome = () =>{
+    setPagina('home')
+  }
+
+  const irParaMatches = () =>{
+    setPagina('matches')
+  }
+
+  const escolheTela = () =>{
+    switch(tela){
+      case 'home':
+        return <Home irParaMatches={irParaMatches}/>
+      case 'matches':
+        return <Matches irParaHome={irParaHome}/>
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {escolheTela()}
     </div>
   );
 }
