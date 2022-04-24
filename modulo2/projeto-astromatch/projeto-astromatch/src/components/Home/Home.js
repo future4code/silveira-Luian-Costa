@@ -1,49 +1,54 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import styled from 'styled-components' 
-import Home from './components/Home/Home.js'
-import Matches from './components/Matches/Matches.js'
+import styled from 'styled-components'
+
+const Div = styled.div`
+
+`
+
 
 const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/luian-costa-silveira/person'
 const url1 = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/luian-costa-silveira/choose-person'
 
-export default function Home(){
+export default function Home(props) {
 
-    const [perfil, setPerfil] = useState({})
+    const [profile, setProfile] = useState({})
 
-    useEffect(() =>{
-        getPerfil()
+    useEffect(() => {
+        getProfile()
     }, []) //useEffect sempre recebe 2 parametros
 
-    const getPerfil = () =>{
+    const getProfile = () => {
         axios.get(url)
-        .then((res)=>{
-            setPerfil(res.data.perfil)
-        }).catch((err)=>{
-            alert('ERROOOOOOO!!!!')
-        })
+            .then((res) => {
+                setProfile(res.data.profile)
+            }).catch((err) => {
+                alert('ERROOOOOOO!!!!')
+            })
     }
 
     const escolhePessoa = (boolean) => {
-        getPerfil()
-        const headers = {
-            escolha: escolha,
-            id: perfil
-        }axios.post(url1, body)
-        .then((res)=>{})
-        .catch((err)=>{
-            alert('ERROOOOOOO')
-        })
+        const body = {
+            id: profile.id,
+            escolha: boolean
+        }
+        axios.post(url1, body)
+            .then((res) => {
+                getProfile()
+            })
+            .catch((err) => {
+                alert('ERROOOOOOO')
+            })
     }
 
-    return(
-        <div>
-            <button onClick={props.irParaMatches}>🔥</button>
+    return (
+        <Div>
+            <button onClick={props.irParaMatches}>AQUI É UM BOTAO</button>
             <img src={profile.photo} />
-            <h2>{profile.name}, {profile.age}</h2>
+            <h1>{profile.name}, {profile.age}</h1>
             <p>{profile.bio}</p>
-            <button onClick={() => choosePerson(true, profile.id)}>👍</button>
-             <button onClick={() => choosePerson(false, profile.id)}>👎</button>
-        </div>
+            <button onClick={() => escolhePessoa(true, profile.id)}>QUERO</button>
+            <button onClick={() => escolhePessoa(false, profile.id)}>NAO QUERO</button>
+        </Div>
     )
 }

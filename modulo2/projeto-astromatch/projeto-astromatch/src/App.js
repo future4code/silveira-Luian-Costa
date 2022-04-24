@@ -1,29 +1,29 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Home from './components/Home/Home.js'
 import Matches from './components/Matches/Matches.js'
 
 export default function App() {
 
-  const [home, setPagina] = useState('tela')
+  const [home, setPagina] = useState('home')
 
-  const irParaHome = () =>{
+  const irParaHome = () => {
     setPagina('home')
   }
 
-  const irParaMatches = () =>{
+  const irParaMatches = () => {
     setPagina('matches')
   }
 
-  const escolheTela = () =>{
-    switch(tela){
+  const escolheTela = () => {
+    switch (home) {
       case 'home':
-        return <Home irParaMatches={irParaMatches}/>
+        return <Home irParaMatches={irParaMatches} />
       case 'matches':
-        return <Matches irParaHome={irParaHome}/>
+        return <Matches irParaHome={irParaHome} />
     }
   }
   return (
-    <div className="App">
+    <div>
       {escolheTela()}
     </div>
   );
