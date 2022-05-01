@@ -42,7 +42,17 @@ const DivBotoes = styled.div`
                     0 0 2px #bc13fe,
                     inset 0 0 1.3rem #bc13fe;
                     cursor: pointer;
+`
 
+const DivViagens = styled.div`
+    border-radius: 2rem;
+    padding: 50px;
+    box-shadow: 0 0 2px #fff,
+                0 0 2px #fff,
+                0 0 2px #bc13fe,
+                0 0 2px #bc13fe,
+                0 0 2px #bc13fe,
+                inset 0 0 1.3rem #bc13fe;
 `
 
 export const ListTripsPage = () => {
@@ -85,11 +95,13 @@ export const ListTripsPage = () => {
     return (
         <DivContainer>
             <h1>Lista de Viagens</h1>
+            <DivViagens>
+                {listTrips}
+            </DivViagens>
             <DivBotoes>
                 <button onClick={goBack}>VOLTAR</button>
                 <button onClick={goToApplicationForm}>INSCREVER-SE</button>
             </DivBotoes>
-            {listTrips}
         </DivContainer>
     )
 }

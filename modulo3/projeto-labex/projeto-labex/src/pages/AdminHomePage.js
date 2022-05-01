@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProtectedPage } from "../hooks/useProtectedPage"
 import styled from "styled-components";
+import axios from "axios";
 
 
 const DivContainer = styled.div`
@@ -45,10 +46,39 @@ const DivBotoes = styled.div`
                     cursor: pointer;
 `
 
+const DivLista = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-color: Transparent;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 2px #fff,
+                0 0 2px #fff,
+                0 0 2px #bc13fe,
+                0 0 2px #bc13fe,
+                0 0 2px #bc13fe,
+                inset 0 0 1.3rem #bc13fe;
+    div{
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        width: auto;
+        height: auto;
+        font-size: 23px;
+        font-weight: bold;
+    }
+`
+
 export const AdminHomePage = () => {
-    useProtectedPage() //nao funciona
+    useProtectedPage()
 
     const navigate = useNavigate()
+
+    const [trips, setTrips] = useState([])
+
+    const getTripDetail = (id) => {
+        navigate(`/admin/trips${id}`)
+    }
 
     const goBack = () => {
         navigate("/")
@@ -58,9 +88,46 @@ export const AdminHomePage = () => {
         navigate("/admin/trips/create")
     }
 
+    useEffect(() => {
+        const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/luian-costa-silveira/trips"
+        axios.get(url)
+            .then((res) => {
+                setTrips(res.data.trips)
+            }).catch((err) => {
+                alert("Ocorreu um erro, tente novamente!")
+            })
+    }, [])
+
+    const deleteTrip = (id) => {
+        const token = localStorage.getItem("token")
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/luian-costa-silveira/trips/${id}`
+        const headers = {
+            auth: token
+        }
+        axios.delete(`${url}/trips/${id}`, headers)
+            .then((res) => {
+                console.log(res)
+                alert("Viagem Deletada")
+            }).catch((err) => {
+                alert(err)
+            })
+    }
+
+    const tripsList = trips.map((trip) => {
+        return(
+            <div>
+                <div onClick={() => getTripDetail(trip.id)}>{trip.name}</div>
+                <div onClick={() => deleteTrip(trip.id)}>X</div>
+            </div>
+        )
+    })
+
     return (
         <DivContainer>
             <h1>Painel Administrativo</h1>
+            <DivLista>
+                {tripsList}
+            </DivLista>
             <DivBotoes>
                 <button onClick={goBack}>VOLTAR</button>
                 <button onClick={goToCreateTripPage}>CRIAR VIAGEM</button>
