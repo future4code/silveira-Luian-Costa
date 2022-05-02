@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useState } from "react";
-import axios from "axios";
 
 const DivContainer = styled.div`
     display: flex;
