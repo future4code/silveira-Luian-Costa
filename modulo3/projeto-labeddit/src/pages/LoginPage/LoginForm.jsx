@@ -1,12 +1,17 @@
 import React from "react";
 import { InputsDiv, Form } from "./styled";
 import { useForm } from "../../hooks/useForm";
+import {login} from "../../services/user"
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
+    const navigate= useNavigate()
+
     const [form, onChange, clearFields] = useForm({ email: "", password: "" })
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        login(form, clearFields, navigate)
     }
 
     return (
