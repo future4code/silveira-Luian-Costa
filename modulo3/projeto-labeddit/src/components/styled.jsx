@@ -19,7 +19,8 @@ export const ContainerHeader = styled.div`
         background-color: ${secondaryColor};
         border: none;
         color: white;
-        padding: 15px 50px;
+        height: 40px;
+        width: 150px;
         text-align: center;
         text-decoration: none;
         display: inline-block;

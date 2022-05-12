@@ -1,10 +1,13 @@
 import React from "react";
 import { Header } from "../../components/Header";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 export const FeedPage = () => {
-    return(
+    useProtectedPage()
+
+    return (
         <div>
-            <Header/>
+            <Header />
             PAGINA DO FEED
         </div>
     )

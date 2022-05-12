@@ -14,3 +14,15 @@ export const login = (form, clearFields, navigate) => {
             alert("Ocorreu um erro. Tente Novamente! " + err)
         })
 }
+
+export const signUp = (form, clearFields, navigate) => {
+    axios.post(`${BASE_URL}/users/signup`, form)
+        .then((res) => {
+            localStorage.setItem("token", res.data.token)
+            clearFields()
+            goToFeedPage(navigate)
+        })
+        .catch((err) => {
+            alert("Ocorreu um erro. Tente Novamente! " + err)
+        })
+}
