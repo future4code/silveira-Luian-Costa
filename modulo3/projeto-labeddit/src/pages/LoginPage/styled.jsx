@@ -6,17 +6,28 @@ export const ContainerDiv = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100vw;
+    div{
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px;
+        transition-duration: 0.5s;
+        color: ${secondaryColor};
+        :hover{
+            color:${primaryColor};
+        }
+    }
 `
 
 export const LogoImage = styled.img`
     width: 70vw;
     max-width: 350px;
-    
 `
 
 export const InputsDiv = styled.div`
     display: flex;
     button{
+        font-size: 17px;
         background-color: ${secondaryColor};
         color: white;
         width: 100%;

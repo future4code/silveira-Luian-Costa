@@ -9,6 +9,7 @@ export const ContainerHeader = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2), 0 2px 8px 0 rgba(0,0,0,0.19);
     h1{
         margin: 15px;
         color: ${secondaryColor};
