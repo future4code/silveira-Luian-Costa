@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryColor, secondaryColor } from "../constants/colors";
+import { primaryColor, secondaryColor } from "../../constants/colors";
 
 export const ContainerHeader = styled.div`
     margin: 0;

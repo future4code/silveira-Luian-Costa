@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { goToFeedPage, goToLoginPage } from "../routes/Coordinator";
+import { goToFeedPage, goToLoginPage } from "../../routes/Coordinator";
 import { ContainerHeader } from "./styled";
 
 export const Header = () => {

@@ -13,3 +13,7 @@ export const goToSignUpPage = (navigate) => {
 export const goToLoginPage = (navigate) => {
     navigate("/login")
 }
+
+export const goToPostDetailsPage = (navigate, id) => {
+    navigate(`/details/${id}`)
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../../components/Header";
+import { Header } from "../../components/Header/Header";
 import logo from "../../assets/logo-reddit.gif"
 import { ContainerDiv, LogoImage } from "./styled";
 import { SignUpForm } from "./SignUpForm";

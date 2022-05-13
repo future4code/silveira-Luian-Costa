@@ -1,4 +1,5 @@
 import React from "react";
+import { Header } from "../../components/Header/Header";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 export const PostDetailsPage = () => {
@@ -6,6 +7,7 @@ export const PostDetailsPage = () => {
 
     return (
         <div>
+            <Header/>
             DETALHES DO POST
         </div>
     )
