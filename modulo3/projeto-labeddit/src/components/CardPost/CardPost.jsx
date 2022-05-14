@@ -1,13 +1,15 @@
 import React from "react";
-import { CardContainer } from "./styled";
+import { CardContainer, DivCard } from "./styled";
 
 export const CardPost = (props) => {
     return (
         <div>
             <CardContainer>
-                {props.username}
-                {props.title}
-                {props.body}
+                <DivCard>
+                    <h1><span>Enviado por: </span>{props.username}</h1>
+                    <h2>{props.title}</h2>
+                    <p>{props.body}</p>
+                </DivCard>
             </CardContainer>
         </div>
     )
