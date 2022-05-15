@@ -12,15 +12,20 @@ export const FeedPage = () => {
     const posts = useRequestData([], `${BASE_URL}/posts`)
     const navigate = useNavigate();
 
+    const onClickCard = (id) => {
+        goToPostDetailsPage(navigate, id)
+    }
+
     const postsCards = posts && posts.map((post) => {
         return (
             <CardPost
                 key={post.id}
+                id={post.id}
                 username={post.username}
                 title={post.title}
                 image={post.image}
                 body={post.body}
-                onClick={() => goToPostDetailsPage(navigate, post.id)}
+                onClick={() => onClickCard(post.id)}
             />
         )
     })
