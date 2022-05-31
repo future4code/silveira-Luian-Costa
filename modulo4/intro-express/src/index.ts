@@ -36,6 +36,17 @@ const arrayUsers: User[] = [
     { id: 5, name: "Kaiki", phone: 441233455, email: "Kaiki@email.com", website: "www.Kaiki.com" }
 ]
 
+//Exercício 4
+
 app.get("/users", (req, res) => {
     res.status(200).send(arrayUsers)
 })
+
+//Exercício 5
+
+type UserPost = {
+    id: number,
+    title: string,
+    body: string,
+    userId: number
+}
