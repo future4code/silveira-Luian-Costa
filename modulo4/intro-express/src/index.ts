@@ -91,3 +91,14 @@ const arrayPosts: UserPost[] = [
 app.get("/posts", (req, res) => {
     res.status(200).send(arrayPosts)
 })
+
+//Exercício 8
+
+app.get("/posts/:id", (req, res) => {
+    const id: number = Number(req.params.id)
+
+    const post = arrayPosts.find((item) => {
+        return item.id === id
+    })
+    res.status(200).send(post)
+})
