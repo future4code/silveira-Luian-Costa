@@ -1,4 +1,4 @@
-import express from "express";
+import express, { request } from "express";
 import cors from "cors";
 import { arrayDeAfazeres } from "./data";
 
@@ -24,4 +24,17 @@ app.get("/afazeres-completos", (req, res) => {
         return afazer.completed === true
     })
     res.status(200).send(afazeresCompletos)
+})
+
+//Exercício 5
+
+app.post("/criar-afazer", (req, res) => {
+    const novoAfazer = {
+        userId: Number(req.headers.authorization),
+        id: arrayDeAfazeres.length + 1,
+        title: req.body.title,
+        completed: req.body.completed
+    }
+    arrayDeAfazeres.push(novoAfazer)
+    res.status(200).send(arrayDeAfazeres)
 })
