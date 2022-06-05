@@ -53,5 +53,15 @@ app.post("/user/create", (req: Request, res: Response) => {
 })
 
 app.get("/users", (req: Request, res: Response) => {
-    res.status(200).send(usersAccounts)
+    let errorCode = 404
+    if (!usersAccounts.length) {
+        errorCode = 404
+        throw new Error("Nada encontrado")
+    }
+    try {
+        res.status(200).send(usersAccounts)
+    }
+    catch (error: any) {
+        res.status(errorCode).send(error.message)
+    }
 })
