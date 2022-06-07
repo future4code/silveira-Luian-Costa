@@ -32,109 +32,105 @@ DESCRIBE Actor;
 
 ### Exercício 2 - a)
 ```
-INSERT INTO Actor(id, name, salary, birth_date, gender)
-VALUES(
-	"001",
-    "Glória Pires",
-    1200000,
-    "1963-08-23",
-    "female"
-);
+INSERT INTO Actor VALUES("002", "Glória Pires", 1200000, "1963-08-23", "female");
 ```
 
-### Exercício 2 - b) Código de Erro: 1062. Entrada duplicada '002' para chave 'PRIMARY'
+### Exercício 2 - b) Código de erro: 1062. Entrada duplicada '002' para chave 'PRIMARY'. 
+
 ```
-INSERT INTO Actor(id, name, salary, birth_date, gender)
-VALUES(
-	"001",
-    "Glória Pires",
-    1200000,
-    "1963-08-23",
-    "female"
-);
+INSERT INTO Actor VALUES("002", "Nicete Bruno", 2400000, "1933-01-07", "female");
 ```
 
-## c) Código do erro: 1136. A contagem de colunas não contagem de valor de correspondência na linha. Faltava a coluna salary.
-
+### Exercício 2 - c) Código do erro: 1136. A contagem de colunas não contagem de valor de correspondência na linha. Faltava a propriedade "salary".
 ```
 INSERT INTO Actor (id, salary, birth_date, gender) VALUES("003", "Fernanda Montenegro", 300000, "1929-10-19", "female");
 ```
 
-## d) Código de erro: 1364. Campo 'nome' não possui um valor padrão. Faltava o values name. 
-
+### Exercício 2 - d) Código de erro: 1364. Campo 'nome' não possui um valor padrão. Propriedade "name" faltando. 
 ```
 INSERT INTO Actor (id, name, salary, birth_date, gender) VALUES("004", "Antônio Fagundes", 400000, "1949-04-18", "male");
 ```
 
-## e) Código do erro: 1292. Valor de data incorreto : '1950' para a coluna 'birth_date' na linha. Faltava as aspas duplas no birth_date.
-
+### Exercício 2 - e) Código do erro: 1292. Valor de data incorreto : '1950' para a coluna 'birth_date' na linha. Erro de sintaxe em "birth_date".
 ```
 INSERT INTO Actor (id, name, salary, birth_date, gender) VALUES("005", "Juliana Paes", 719333.33, "1979-03-26", "female");
 ```
 
-## f)
+### Exercício 2 - f)
+```
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "003", 
+  "Fernanda Montenegro",
+  300000,
+  "1929-10-19", 
+  "female"
+);
+```
 
 ```
-INSERT INTO Actor (id, name, salary, birth_date, gender) VALUES("006", "Paulo Goulart", 719333.33, "1933-01-09", "male");
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "004", 
+  "Antônio Fagundes",
+  400000,
+  "1949-04-18", 
+  "male"
+);
 ```
 
 ```
-INSERT INTO Actor (id, name, salary, birth_date, gender) VALUES( "007", "Glória Menezes", 400000, "1934-10-19", "female");
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "004", 
+  "Antônio Fagundes",
+  400000,
+  "1949-04-18", 
+  "male"
+);
 ```
 
-# Exercício 3
-## a)
-
+### Exercício 3 - a)
 ```
 SELECT id, name from Actor WHERE gender = "female";
 ```
 
-## b)
-
+### Exercício 3 - b)
 ```
 SELECT id, salary from Actor WHERE name = "Tony Ramos";
 ```
 
-## c) 0 retornos, pois gender = "Invalid" são nulls. 
-
+### Exercício 3 - c) Não teve retorno
 ```
 SELECT id, name from Actor WHERE gender = "Invalid";
 ```
 
-## d)
-
+### Exercício 3 - d)
 ```
 SELECT id, name, salary from Actor WHERE salary < 500000;
 ```
 
-## e) Código de erro: 1054. Coluna desconhecida 'nome' na 'lista de campos'. O tipo name está incorreto.
-
+### Exercício 3 - e) Código de erro: 1054. Coluna desconhecida 'nome' na 'lista de campos'. Tipagem incorreta, o correto seria "name".
 ```
-SELECT id, nome from Actor WHERE id = "002";
+SELECT id, name from Actor WHERE id = "002";
 ```
 
-# Exercício 4 
-
-## a) O LIKE é usado para comparar strings. % é curinga, procurando entre os values que possuem A e J e o salary acima de 300000. 
-
+### Exercício 4 - a) O LIKE é um comparador de strings, a "%" indica uma string genérica que procura pela letra inicial declarada antes do símbolo. 
 ```
 SELECT * FROM Actor WHERE (name LIKE "A%" OR name LIKE "J%") AND salary > 300000;
 ```
 
-## b) 
-
+### Exercício 4 - b) 
 ```
 SELECT * FROM Actor WHERE (name NOT LIKE "A%") AND salary > 350000;
 ```
 
-## c)
-
+### Exercício 4 - c)
 ```
 SELECT * FROM Actor WHERE name LIKE "%g%" OR name LIKE "%G%";
 ```
 
-## d)
-
+### Exercício 4 - d)
 ```
 SELECT * FROM Actor WHERE (name LIKE "%a%" OR name LIKE "%A%" OR name LIKE "%g%" OR name LIKE "%G%") AND salary BETWEEN 350000 AND 900000;
 ```
