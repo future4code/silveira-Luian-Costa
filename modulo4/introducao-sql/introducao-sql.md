@@ -176,47 +176,37 @@ INSERT INTO Movie VALUES ("003", "Dona Flor e Seus Dois Maridos", "Dona Flor é 
 INSERT INTO Movie VALUES ("004", "Lisbela e o Prisioneiro", "A jovem Lisbela adora ir ao cinema e vive sonhando com os galãs de Hollywood dos filmes que assiste. Leléu é um malandro conquistador, que em meio a uma de suas muitas aventuras chega à cidade da moça. Após se conhecerem eles logo se apaixonam, mas Lisbela está de casamento marcado. Em meio às dúvidas e aos problemas familiares que a nova paixão desperta, há ainda a presença de um matador que está atrás de Leléu, devido a ele ter se envolvido com sua esposa no passado.", "2003-08-22", 7);
 ```
 
-# Exercício 6 
-
-## a) 
-
+### Exercício 6 - a) 
 ```
 SELECT id, title, evaluation FROM Movie WHERE id = "004";
 ```
 
-## b)
-
+### Exercício 6 - b)
 ```
-SELECT title FROM Movie WHERE title = "Lisbela e o Prisioneiro";
+SELECT title FROM Movie WHERE title = "O Auto da Compadecida";
 ```
 
-## c)
-
+### Exercício 6 - c)
 ```
 SELECT id, title, synopsis FROM Movie WHERE evaluation >= 7;
 ```
 
-# Exercício 7
-
-## a) 
-
+### Exercício 7 - a) 
 ```
 SELECT * FROM Movie WHERE title LIKE "%vida%";
 ```
 
-## b) 
-
+### Exercício 7 - b) 
 ```
-SELECT * FROM Movie WHERE title LIKE "%você%" OR synopsis LIKE "%anos%";
-```
-
-## c) 
-
-```
-SELECT * FROM Movie WHERE release_date_of < "2022-06-06";
+SELECT * FROM Movie WHERE title LIKE "%dona%" OR synopsis LIKE "%chicó%";
 ```
 
-## d) 
+### Exercício 7 - c) 
 ```
-SELECT * FROM Movie WHERE release_date_of < "2022-06-06" and (title LIKE "%você" OR synopsis LIKE "%anos%") and evaluation > 7;
+SELECT * FROM Movie WHERE release_date <"2022-06-08";
+```
+
+### Exercício 7 - d) 
+```
+SELECT * FROM Movie WHERE release_date <"2022-06-08" and (title LIKE "%dona" OR synopsis LIKE "%grilo%") and evaluation > 7;
 ```
