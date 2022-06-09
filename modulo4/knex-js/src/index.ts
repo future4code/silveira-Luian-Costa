@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cors());
 
 //Exercício 1
-//A) O Raw nos dá uma resposta crua dos dados, então se nao ocorrer um erro ele retorna as informações do banco de dados
+//A) O Raw nos retorna as informações do banco de dados
 
 //B)
 
@@ -63,7 +63,9 @@ app.put("/actor/salary/:id", async (req, res) => {
 
 app.delete("/actor/delete/:id", async (req, res) => {
     try {
-        await connection("Actor").where({ id: req.params.id }).delete();
+        await connection("Actor")
+            .where({ id: req.params.id })
+            .delete();
         res.status(200).send("Ator deletado")
     } catch (error: any) {
         res.status(500).send(error.sqlMessage || error.message)
@@ -79,6 +81,40 @@ app.get("/actor/salary/gender", async (req, res) => {
         res.status(200).send({ message: resultado[0] })
     } catch (error: any) {
         res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
+//Exercício 3
+
+app.get("/actor/:id", async (req, res) => {
+    try {
+        const resultado = await connection("Actor")
+            .select("*")
+            .where({ id: req.params.id })
+        res.status(200).send({ message: resultado[0] })
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
+app.get("/actor", async (req, res) => {
+    try {
+        const count = await connection("Actor")
+            .select()
+            .count("*")
+            .where({ gender: req.query.gender as string })
+        res.status(200).send({ quantity: count })
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
+app.post("/actor/create", async (req, res) => {
+    try {
+        const resultado = await connection("Actor")
+
+    } catch (error: any) {
+
     }
 })
 
