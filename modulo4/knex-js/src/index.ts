@@ -21,6 +21,66 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//Exercício 1
+//A) O Raw nos dá uma resposta crua dos dados, então se nao ocorrer um erro ele retorna as informações do banco de dados
+
+//B)
+
+app.get("/actor", async (req, res) => {
+    try {
+        const resultado = await connection.raw(`
+            SELECT * FROM Actor Where name = "${req.body.name}"
+        `)
+        res.status(200).send({ message: resultado[0] })
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
+app.get("/actor/gender", async (req, res) => {
+    try {
+        const resultado = await connection.raw(`
+           SELECT COUNT (gender) FROM Actor WHERE gender = "${req.body.gender}"
+        `)
+        res.status(200).send({ message: resultado[0] })
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
+//Exercício 2
+app.put("/actor/salary/:id", async (req, res) => {
+    try {
+        await connection("Actor")
+            .update({
+                salary: req.body.salary
+            }).where({ id: req.params.id })
+        res.status(200).send("Salário Atualizado")
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
+app.delete("/actor/delete/:id", async (req, res) => {
+    try {
+        await connection("Actor").where({ id: req.params.id }).delete();
+        res.status(200).send("Ator deletado")
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
+app.get("/actor/salary/gender", async (req, res) => {
+    try {
+        const resultado = await connection("Actor")
+            .select()
+            .avg("salary")
+            .where({ gender: req.body.gender })
+        res.status(200).send({ message: resultado[0] })
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
