@@ -112,9 +112,16 @@ app.get("/actor", async (req, res) => {
 app.post("/actor/create", async (req, res) => {
     try {
         const resultado = await connection("Actor")
-
+            .insert({
+                id: Date.now(),
+                name: req.body.name,
+                salary: req.body.salary,
+                birth_date: req.body.birthDate,
+                gender: req.body.gender
+            })
+        res.status(200).send({ message: resultado[0] })
     } catch (error: any) {
-
+        res.status(500).send(error.sqlMessage || error.message)
     }
 })
 
