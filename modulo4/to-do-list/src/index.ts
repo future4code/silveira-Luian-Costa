@@ -30,6 +30,7 @@ const server = app.listen(process.env.PORT || 3003, () => {
     }
 })
 
+//Criar Usuário
 app.post("/user", async (req, res) => {
     try {
         if (!req.body.name || !req.body.nickname || !req.body.email) {
@@ -44,10 +45,11 @@ app.post("/user", async (req, res) => {
             })
         res.status(200).send("Usuário criado com sucesso!")
     } catch (error: any) {
-        res.status(200).send(error.sqlMessage || error.message)
+        res.status(500).send(error.sqlMessage || error.message)
     }
 });
 
+//Pegar Usuário Pelo ID
 app.get("/user/:id", async (req, res) => {
     try {
         const user = await connection("Users")
@@ -61,3 +63,43 @@ app.get("/user/:id", async (req, res) => {
         res.status(500).send(error.sqlMessage || error.message)
     }
 });
+
+//Editar Usuário
+app.put("/user/edit/:id", async (req, res) => {
+    try {
+        if (!req.body.name || !req.body.nickname || !req.body.email) {
+            throw new Error("Preencha os campos corretamente")
+        }
+        await connection("Users")
+            .update({
+                name: req.body.name,
+                nickname: req.body.nickname,
+                email: req.body.email,
+            })
+            .where({ id: req.params.id })
+        res.status(200).send("Usuário editado com sucesso!")
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
+//Criar Tarefa
+app.post("/task", async (req, res) => {
+    try {
+        if (!req.body.title || !req.body.description || !req.body.limit_date || !req.body.status || !req.body.creator_user_id) {
+            throw new Error("Preencha corretamente os campos")
+        }
+        const resultado = await connection("Tarefas")
+            .insert({
+                task_id: Date.now().toString(),
+                title: req.body.title,
+                description: req.body.description,
+                limit_date: req.body.limit_date.split("/").reverse().join("-"),
+                status: req.body.status,
+                creator_user_id: req.body.creator_user_id
+            })
+        res.status(200).send("Tarefa adicionada com sucesso!")
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
