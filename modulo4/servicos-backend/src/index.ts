@@ -1,5 +1,9 @@
 import { AddressInfo } from "net";
 import { app } from "./app";
+import { insertAddress } from "./endpoints/insertAddress";
+
+app.get("/address/:cep", insertAddress)
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
@@ -9,5 +13,3 @@ const server = app.listen(process.env.PORT || 3003, () => {
         console.error(`Failure upon starting server.`);
     }
 });
-
-console.log("teste")
