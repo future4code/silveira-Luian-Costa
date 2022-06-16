@@ -62,6 +62,39 @@ app.get("/userspage", async (req, res) => {
     }
 })
 
+app.get("/usersall", async (req, res) => {
+    try {
+        const table = "aula49_exercicio"
+        let page = Number(req.query.page)
+        let sort = req.query.sort as string
+        let order = req.query.order as string
+        let name = req.query.name
+
+        if (page < 1 || isNaN(page)) {
+            page = 1
+        }
+        let size = 5
+        let offset = size * (page - 1)
+
+        if (!name) {
+            name = "%"
+        }
+        if (!sort) {
+            sort = "name"
+        }
+        if (!order) {
+            order = "DESC"
+        }
+        const result = await connection(table)
+            .where("name", "LIKE", `%${name}%`)
+            .orderBy(sort, order)
+            .offset(offset)
+        res.status(200).send(result)
+    } catch (error: any) {
+        res.status(500).send(error.sqlMessage || error.message)
+    }
+})
+
 const server = app.listen(3003, () => {
     console.log(`Server is running in http://localhost:3003`);
 });
