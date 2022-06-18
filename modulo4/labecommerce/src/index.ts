@@ -59,7 +59,21 @@ app.post("/products", async (req, res) => {
 //EXIBE TODOS OS PRODUTOS
 app.get("/products", async (req, res) => {
     try {
+        let search = req.query.search as string
+        let order = req.query.order as string
+        let sort = req.query.sort as string
+        if (!search) {
+            search = "%"
+        }
+        if (sort !== "name" && sort !== "id") {
+            sort = "name"
+        }
+        if (order.toUpperCase() !== "ASC" && order.toUpperCase() !== "DESC") {
+            order = "%"
+        }
         const result = await connection("labecommerce_products")
+            .where("name", "LIKE", `%${search}%`)
+            .orderBy(sort, order)
         res.status(200).send(result)
     } catch (error: any) {
         res.status(500).send(error.sqlMessage || error.message)
@@ -74,6 +88,7 @@ app.post("/purchases", async (req, res) => {
             .where("id", product_id)
             .select("price")
             .first()
+
         const total_price = preco.price * quantity;
 
         await connection("labecommerce_purchases")
@@ -95,11 +110,12 @@ app.get("/users/:user_id/purchases", async (req, res) => {
     try {
         const result = await connection("labecommerce_purchases")
             .where({ user_id: req.params.user_id })
-            res.status(200).send(result)
+        res.status(200).send(result)
     } catch (error: any) {
         res.status(500).send(error.sqlMessage || error.message)
     }
 })
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
