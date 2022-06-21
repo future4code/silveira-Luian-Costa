@@ -49,6 +49,7 @@ class UserAccount {
 }
 
 const luian = new UserAccount("123456789", "Luian Costa", 21)
+console.log(luian.getCpf())
 
 //C)
 
