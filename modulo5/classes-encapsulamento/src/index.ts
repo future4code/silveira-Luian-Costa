@@ -30,3 +30,19 @@ class UserAccount {
 }
 
 const luian = new UserAccount("123456789", "Luian Costa", 21)
+
+//C)
+
+//Exercício 2
+
+class Transactions {
+    private date: string;
+    private value: number;
+    private description: string;
+
+    constructor(date: string, value: number, description: string) {
+        this.date = date;
+        this.value = value;
+        this.description = description
+    }
+}
