@@ -1,0 +1,1 @@
+### Exercício 1 - a) Rounds é o tempo para calcular um hash BCrypt, e Salt é um valor aleatório que muda a cálculo, de modo que o resultado dificilmente deve ser o mesmo, mesmo para senhas iguais.
