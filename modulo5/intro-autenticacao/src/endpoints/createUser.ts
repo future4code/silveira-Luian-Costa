@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import connection from "../connection";
-import { user } from "../types";
+import { User } from "../types";
 
 export default async function createUser(
    req: Request,
@@ -32,7 +31,7 @@ export default async function createUser(
 
       res.status(201).send({ newUser })
 
-   } catch (error) {
+   } catch (error: any) {
 
       if (res.statusCode === 200) {
          res.status(500).send({ message: "Internal server error" })

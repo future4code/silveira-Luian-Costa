@@ -1,0 +1,1 @@
+### Exercíci 1 - a) Sim, pois o código hexadecimal é formado por diversos caracteres incluindo números e letras, sendo necessário ser representado por uma string
