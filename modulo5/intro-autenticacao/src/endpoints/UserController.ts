@@ -24,7 +24,7 @@ export class UserController {
 
          const token = new Authenticator().generateToken({ id })
 
-         res.status(200).send(token)
+         res.status(200).send({ message: "Usuárico criado com sucesso", token })
       } catch (error: any) {
          res.status(500).send(error.sqlMessage || error.message)
       }
