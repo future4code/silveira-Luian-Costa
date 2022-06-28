@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { userDataBase } from "../data/UserDataBase";
 import { Authenticator } from "../services/Authenticator";
-import { idGenerator } from "../services/IdGenerator";
+import { idGenerator } from "../services/idGenerator";
 import { User } from "../types";
 
 export class UserController {
