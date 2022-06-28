@@ -7,4 +7,20 @@ export class userDataBase extends Database {
             .insert({ id, email, password })
             .into("User")
     }
+
+    public async getUserByEmail(email: string): Promise<any> {
+        const [result] = await this.getConnection()
+            .select("*")
+            .from("User")
+            .where({ email: email })
+        return result
+    }
+
+    public async getUserById(id: string): Promise<any> {
+        const [result] = await this.getConnection()
+            .select("*")
+            .from("User")
+            .where({ id })
+        return result
+    }
 }
