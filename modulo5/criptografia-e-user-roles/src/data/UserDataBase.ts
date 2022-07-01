@@ -1,10 +1,9 @@
-import { User } from "../types";
 import { Database } from "./DataBase";
 
 export class userDataBase extends Database {
-    public async createUser(id: string, email: string, password: string): Promise<void> {
+    public async createUser(id: string, email: string, password: string, role: string): Promise<void> {
         await this.getConnection()
-            .insert({ id, email, password })
+            .insert({ id, email, password, role })
             .into("User")
     }
 
