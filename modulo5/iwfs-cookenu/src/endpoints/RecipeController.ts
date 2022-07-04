@@ -54,7 +54,7 @@ export class RecipeController {
 
             const recipe = await new RecipeDataBase().getRecipeById(id)
 
-            res.status(200).send({ id: recipe.id, title: recipe.title, description: recipe.description})
+            res.status(200).send({ id: recipe.id, title: recipe.title, description: recipe.description, createdAt: recipe.created_at })
         } catch (error: any) {
             res.status(res.statusCode || 500).send(error.sqlMessage || error.message)
         }
