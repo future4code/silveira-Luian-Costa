@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMGRmODRjLTc4MzYtNGRkYS04YzRjLWU0NjdhNWQ4YjAzYiIsImlhdCI6MTY1NjkyMTU2OSwiZXhwIjoxNjU2OTI0NTY5fQ.FxMwV79SsKtVx3q2URxOMlm0L8eETIhQn9oPwP1YFVE
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMGRmODRjLTc4MzYtNGRkYS04YzRjLWU0NjdhNWQ4YjAzYiIsImlhdCI6MTY1NjkyMTk4MiwiZXhwIjoxNjU2OTI0OTgyfQ.iO484htKHOwC2J1c7wQ72203ST4a-1bblW_cIstht5U
 
 GET http://localhost:3003/user/profile 
 Authorization: {{token}}
