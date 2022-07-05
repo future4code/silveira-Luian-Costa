@@ -1,9 +1,7 @@
 import { connection } from "../connection"
 import { user } from "../types/user"
 
-export const selectUserByEmail = async (
-   email: string
-): Promise<user> => {
+export const selectUserByEmail = async (email: string): Promise<user> => {
    try {
       const result = await connection("to_do_list_users")
          .select("*")
@@ -18,7 +16,7 @@ export const selectUserByEmail = async (
          role: result[0].role
       }
 
-   } catch (error) {
+   } catch (error: any) {
       throw new Error(error.slqMessage || error.message)
    }
 }

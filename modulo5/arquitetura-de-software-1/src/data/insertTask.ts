@@ -1,9 +1,7 @@
 import { connection } from "../connection";
 import { task } from "../types/task";
 
-export const insertTask = async (
-   task: task
-) => {
+export const insertTask = async (task: task) => {
    await connection('to_do_list_tasks')
       .insert({
          id: task.id,

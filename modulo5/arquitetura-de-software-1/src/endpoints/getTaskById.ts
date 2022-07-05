@@ -1,10 +1,7 @@
 import { Request, Response } from "express";
-import {selectTaskById} from "../data/selectTaskById";
+import { selectTaskById } from "../data/selectTaskById";
 
-export const getTaskById = async (
-   req: Request,
-   res: Response
-) => {
+export const getTaskById = async (req: Request, res: Response) => {
    try {
 
       const { id } = req.params
@@ -27,7 +24,7 @@ export const getTaskById = async (
 
       res.status(200).send(taskWithUserInfo)
 
-   } catch (error) {
+   } catch (error: any) {
       res.status(400).send(error.message)
    }
 }

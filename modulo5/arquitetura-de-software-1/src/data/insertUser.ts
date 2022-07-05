@@ -1,9 +1,7 @@
 import { connection } from "../connection";
 import { user } from "../types/user";
 
-export const insertUser = async(
-   user: user
-) => {
+export const insertUser = async (user: user) => {
    await connection.insert({
       id: user.id,
       name: user.name,

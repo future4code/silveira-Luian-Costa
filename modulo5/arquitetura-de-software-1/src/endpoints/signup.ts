@@ -4,10 +4,7 @@ import { generateToken } from "../services/authenticator";
 import { hash } from "../services/hashManager";
 import { generateId } from "../services/idGenerator";
 
-export const signup = async (
-   req: Request,
-   res: Response
-) => {
+export const signup = async (req: Request, res: Response) => {
    try {
       const { name, nickname, email, password, role } = req.body
 
@@ -46,7 +43,7 @@ export const signup = async (
             token
          })
 
-   } catch (error) {
+   } catch (error: any) {
       res.status(400).send(error.message)
    }
 }

@@ -1,11 +1,8 @@
 import { Request, Response } from "express";
-import {insertTask} from "../data/insertTask";
+import { insertTask } from "../data/insertTask";
 import { generateId } from "../services/idGenerator";
 
-export const createTask = async (
-   req: Request,
-   res: Response
-) => {
+export const createTask = async (req: Request, res: Response) => {
    try {
 
       const { title, description, deadline, authorId } = req.body
@@ -31,7 +28,7 @@ export const createTask = async (
 
       res.status(201).end()
 
-   } catch (error) {
+   } catch (error: any) {
 
       res.statusMessage = error.message
       res.status(500).end()
