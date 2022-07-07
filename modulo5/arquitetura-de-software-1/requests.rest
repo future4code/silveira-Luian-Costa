@@ -2,10 +2,19 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-	"name": "Michael Scott",
-	"email": "michael@dundermifflin.com",
-	"password": "theboss",
-	"role": "ADMIN"
+	"name": "Luiao Kosta",
+	"email": "luiao@dundermifflin.com",
+	"password": "luiandersson",
+	"role": "NORMAL"
 }
 ###
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViNGVmMGFmLWJmOWQtNGYyNi05ZTE0LTlkMDhhN2VjMTEyMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzE4MjMyNSwiZXhwIjoxNjU3MTgzNzY1fQ.SNEoe3OlmNeUFMA4roC5F2Gz1b-t_JzvZ9wKwiVXBfE
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+	"email": "luiao@dundermifflin.com",
+	"password": "luiandersson"
+}

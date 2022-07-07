@@ -22,3 +22,8 @@ export type userInput = {
    password: string,
    role: USER_ROLES
 }
+
+export type userLogin = {
+   email: string,
+   password: string
+}
