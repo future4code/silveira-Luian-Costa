@@ -27,4 +27,15 @@ export class UserData extends Database {
             throw new Error(error.sqlMessage || error.message);
         }
     }
+
+    public async getAllUsers() {
+        try {
+            const result = await this.getConnection()
+                .select("*")
+                .from("User_Arq")
+            return result
+        } catch (error: any) {
+            throw new Error("Erro no banco de dados")
+        }
+    }
 }

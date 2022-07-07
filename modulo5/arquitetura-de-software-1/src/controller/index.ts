@@ -6,7 +6,5 @@ const userController = new UserController()
 
 app.post('/user/signup', userController.signup)
 app.post('/user/login', userController.login)
-
-// app.put('/task', createTask)
-// app.get('/task/:id', getTaskById)
+app.get('/user/all', userController.getAllUsers)
 

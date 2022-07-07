@@ -18,3 +18,7 @@ Content-Type: application/json
 	"email": "luiao@dundermifflin.com",
 	"password": "luiandersson"
 }
+
+###
+GET http://localhost:3003/user/all
+Authorization: {{{token}}}

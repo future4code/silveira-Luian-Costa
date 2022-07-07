@@ -39,4 +39,14 @@ export class UserController {
         }
     }
 
+    public async getAllUsers(req: Request, res: Response) {
+        try {
+            const token = req.headers.authorization as string
+            const users = await new UserBusiness().getUsers(token)
+            res.status(200).send({ users })
+        } catch (error: any) {
+            res.status(500).send(error.sqlMessage || error.message)
+        }
+    }
+
 }

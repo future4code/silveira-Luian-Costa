@@ -36,10 +36,8 @@ export class UserBusiness {
             };
 
             const loginUser = await new UserData().getUserByEmail(userData.email);
-            console.log(loginUser)
 
             const compareResult = new HashManager().compareHash(userData.password, loginUser.password);
-            console.log(compareResult)
 
             if (!compareResult) {
                 throw new Error("Invalid credentials!");
@@ -54,4 +52,8 @@ export class UserBusiness {
         }
     }
 
+    public async getUsers(token: string) {
+        new Authenticator().getData(token)
+        return await new UserData().getAllUsers();
+    }
 }
