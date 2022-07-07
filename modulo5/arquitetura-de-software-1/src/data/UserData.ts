@@ -31,7 +31,7 @@ export class UserData extends Database {
     public async getAllUsers() {
         try {
             const result = await this.getConnection()
-                .select("*")
+                .select("id", "name", "email", "role")
                 .from("User_Arq")
             return result
         } catch (error: any) {
