@@ -1,4 +1,4 @@
-import { Authenticator } from "../services/authenticator";
+import { Authenticator, getTokenData } from "../services/authenticator";
 import { generateId } from "../services/idGenerator"
 import { user, userInput, userLogin } from "../types/user";
 import { UserData } from "../data/UserData";
@@ -55,5 +55,16 @@ export class UserBusiness {
     public async getUsers(token: string) {
         new Authenticator().getData(token)
         return await new UserData().getAllUsers();
+    }
+
+    public async deleteUser(input: { id: string, token: string }) {
+
+        const verifiedToken = getTokenData(input.token);
+
+        if (verifiedToken.role !== "ADMIN") {
+            throw new Error("Usuário não autorizado")
+        }
+
+        return await new UserData().deleteUser(input.id)
     }
 }

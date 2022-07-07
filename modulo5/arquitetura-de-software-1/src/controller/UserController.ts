@@ -49,4 +49,18 @@ export class UserController {
         }
     }
 
+    public async deleteUser(req: Request, res: Response) {
+        try {
+            const input = {
+                id: req.params.id,
+                token: req.headers.authorization as string
+            }
+
+            await new UserBusiness().deleteUser(input)
+
+            res.status(200).send({ message: "Usuário deletado com sucesso" })
+        } catch (error: any) {
+            res.status(500).send(error.sqlMessage || error.message)
+        }
+    }
 }

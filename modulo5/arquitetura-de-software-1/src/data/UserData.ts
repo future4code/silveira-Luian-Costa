@@ -38,4 +38,15 @@ export class UserData extends Database {
             throw new Error("Erro no banco de dados")
         }
     }
+
+    public async deleteUser(id: string) {
+        try {
+            await this.getConnection()
+                .where({ id })
+                .from("User_Arq")
+                .del()
+        } catch (error: any) {
+            throw new Error("Erro ao deletar usuário")
+        }
+    }
 }
