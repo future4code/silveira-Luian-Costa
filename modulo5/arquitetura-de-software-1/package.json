@@ -1,7 +1,7 @@
 {
     "scripts": {
         "start": "tsc && node --inspect ./build/index.js",
-        "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts"
+        "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/controller/index.ts"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",

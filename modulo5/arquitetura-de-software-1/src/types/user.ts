@@ -11,7 +11,13 @@ export type authenticationData = {
 export type user = {
    id: string,
    name: string,
-   nickname: string,
+   email: string,
+   password: string,
+   role: USER_ROLES
+}
+
+export type userInput = {
+   name: string,
    email: string,
    password: string,
    role: USER_ROLES
