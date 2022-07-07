@@ -2,10 +2,10 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-	"name": "Ryan Howard",
-	"email": "ryanhoward@dundermifflin.com",
-	"password": "realboss",
-	"role": "ADMIN"
+	"name": "Luiao",
+	"email": "luiao@dundermifflin.com",
+	"password": "luiao123456789",
+	"role": "NORMAL"
 }
 ###
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViODcxMmU0LWMwNWUtNGFhMC05YzIzLWZiZDQ0MWEwN2M5OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NzIxNTk2MiwiZXhwIjoxNjU3MjE4OTYyfQ.LS4Irop8OQjoyNbIaV3OY2pG2QGHpX2DD9kCMynjyKA
@@ -23,5 +23,5 @@ GET http://localhost:3003/user/all
 Authorization: {{token}}
 
 ###
-DELETE http://localhost:3003/user/:id
+DELETE http://localhost:3003/user/0c0b8aa8-c73c-4fd9-88ba-4e7296182d1a
 Authorization: {{token}}
