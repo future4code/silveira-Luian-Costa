@@ -1,0 +1,34 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name": "Homelander",
+    "email": "casapropria@email.com",
+    "password": "tocarente"
+}
+
+###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNiOTY0MmJjLTUwYzctNDRkMy1iNmFkLTkzOTAwZjBkY2Y4MiIsImlhdCI6MTY1NzUyNjY4NCwiZXhwIjoxNjU3NTI4NDg0fQ.V4Bn7vcONi7Q6omDXrOg24AJLHenvevV6u1cGHMFJDU
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "casapropria@email.com",
+    "password": "tocarente"
+}
+
+###
+POST http://localhost:3003/post/create
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "photo":"https://conteudo.imguol.com.br/c/entretenimento/c5/2019/07/19/cena-da-serie-the-boys-1563577475598_v2_4x3.jpg",
+    "description":"Tirando foto com meus fãs no último evento da Vought Internacional",
+    "type":"EVENT"
+}
+
+###
+GET http://localhost:3003/post/fcaee3f7-c928-4730-ac37-54641fd7e298
+Authorization: {{token}}
