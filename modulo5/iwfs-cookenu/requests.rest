@@ -1,0 +1,44 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "email": "emailgenerico@hotmail.com",
+    "password": "senhagenerica123",
+    "name": "Nome Genérico"
+}
+
+###
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "emailgenerico@hotmail.com",
+    "password": "senhagenerica123"
+}
+
+###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMGRmODRjLTc4MzYtNGRkYS04YzRjLWU0NjdhNWQ4YjAzYiIsImlhdCI6MTY1NjkyMTk4MiwiZXhwIjoxNjU2OTI0OTgyfQ.iO484htKHOwC2J1c7wQ72203ST4a-1bblW_cIstht5U
+
+GET http://localhost:3003/user/profile 
+Authorization: {{token}}
+
+###
+GET http://localhost:3003/user/b16cdfe0-76da-479a-9890-f8eea4e9dca9
+Authorization: {{token}}
+
+###
+POST http://localhost:3003/recipe
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "title": "Agua quente",
+    "description": "Coloque a aguá no fogo"
+}
+
+###
+
+GET http://localhost:3003/recipe/a688142e-f077-41ce-a286-58c3628172cb
+Authorization: {{token}}
+###
+
