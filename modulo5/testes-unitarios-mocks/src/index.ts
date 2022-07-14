@@ -9,3 +9,12 @@ export function validateCharacter(input: Character): boolean {
     }
     return true
 }
+
+export function performAttack(attacker: Character, defender: Character, validator: (input: Character) => boolean) {
+    if (!validator(attacker) || !validator(defender)) {
+        throw new Error("Invalid Character")
+    }
+    if (attacker.strength > defender.defense) {
+        defender.life - attacker.strength
+    }
+}
