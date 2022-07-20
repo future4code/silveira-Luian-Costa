@@ -1,0 +1,7 @@
+POST http://localhost:3003/product/create
+Content-Type: application/json
+
+{
+    "name": "VESTIDO TRICOT CHEVRON",
+    "tags": "balada, neutro, delicado, festa"
+}
