@@ -31,4 +31,13 @@ export class ProductBusiness {
             throw new CustomError(400, error.message)
         }
     }
+
+    public getProduct = async (id: string, name: string, tag: string) => {
+        try {
+            const result = await this.productDataBase.getProduct(id, name, tag)
+            return result
+        } catch (error: any) {
+            throw new CustomError(500, error.message)
+        }
+    }
 }

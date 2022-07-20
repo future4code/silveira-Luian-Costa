@@ -17,4 +17,20 @@ export class ProductDatabase extends DataBase {
             throw new CustomError(500, error.sqlMessage)
         }
     }
+
+    public getProduct = async (id: string, name: string, tag: string) => {
+        try {
+            const [result] = await DataBase.connection.raw(`
+            SELECT * FROM Amaro_Products
+            WHERE 
+                id = "${id}" OR
+                name LIKE "%${name}%" OR
+                tags LIKE "%${tag}%"
+                ORDER BY name;
+            `)
+            return result
+        } catch (error: any) {
+            throw new CustomError(500, error.sqlMessage)
+        }
+    }
 }

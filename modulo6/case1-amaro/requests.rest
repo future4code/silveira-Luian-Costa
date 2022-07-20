@@ -5,3 +5,6 @@ Content-Type: application/json
     "name": "VESTIDO TRICOT CHEVRON",
     "tags": "balada, neutro, delicado, festa"
 }
+
+###
+GET http://localhost:3003/product/all
