@@ -7,4 +7,12 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3003/product/all
+GET http://localhost:3003/product/all?id=f23948a5-e3c2-451f-b0a1-c0a15619b7b5
+
+###
+GET http://localhost:3003/product/all?name=vestido
+
+###
+GET http://localhost:3003/product/all?tag=balada
+
+###
