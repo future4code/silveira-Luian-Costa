@@ -1,4 +1,5 @@
 # Case Back-end - Amaro
+API desenvolvida para cadastro e consulta de produtos
 
 ## 💻 Documentação da API
 https://documenter.getpostman.com/view/20353668/UzXLxxF8
