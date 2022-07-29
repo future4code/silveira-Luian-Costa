@@ -59,7 +59,7 @@ export class PaymentBusiness {
 
             await this.paymentData.registerCCPayment(newPayment);
         } catch (error: any) {
-            throw new CustomError(400, error.message)
+            throw new CustomError(400, "Ocorreu um erro. Tente novamente!!!")
         }
     }
 }
