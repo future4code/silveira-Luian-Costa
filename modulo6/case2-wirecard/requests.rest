@@ -5,7 +5,7 @@ Content-Type: application/json
     "client_id": "1",
     "buyer_name": "Luiao Gabriel Barbosa Costa",
     "buyer_email": "luiao@email.com",
-    "buyer_cpf": "00100200304",
+    "buyer_cpf": "001.002.003-04",
     "amount": 10,
     "payment_type": "creditcard",
     "card_holder_name": "Luian G B Costa",
