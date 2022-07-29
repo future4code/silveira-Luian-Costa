@@ -11,4 +11,4 @@ const paymentBusiness = new PaymentBusiness(
 
 const paymentController = new PaymentController(paymentBusiness);
 
-paymentRouter.post("/credit-card", paymentController.registerCCPayment)
+paymentRouter.post("/credit-card", paymentController.registerCCPayment);

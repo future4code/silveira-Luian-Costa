@@ -9,7 +9,7 @@ export class PaymentBusiness {
 
     public registerCCPayment = async (input: CreditCardDTO) => {
         try {
-            const { client_id, buyer_name, buyer_email, buyer_cpf, amount, payment_type, card_holder_name, card_number, card_expiration_date, card_cvv } = input
+            const { client_id, buyer_name, buyer_email, buyer_cpf, amount, payment_type, card_holder_name, card_number, card_expiration_date, card_cvv } = input;
 
             if (!client_id) {
                 throw new Error("Cliente inexistente.");
@@ -38,7 +38,7 @@ export class PaymentBusiness {
                 throw new Error("Insira corretamento os dados do cartão de crédito.");
             };
 
-            const cardNumberVerify = card_number.split(" ").join("")
+            const cardNumberVerify = card_number.split(" ").join("");
 
             if (card_cvv.length !== 3 || card_expiration_date.length !== 5 || cardNumberVerify.length !== 16) {
                 throw new Error("Cartão de Crédito inválido.");
@@ -59,7 +59,7 @@ export class PaymentBusiness {
 
             await this.paymentData.registerCCPayment(newPayment);
         } catch (error: any) {
-            throw new CustomError(400, "Ocorreu um erro. Tente novamente!!!")
+            throw new CustomError(400, "Ocorreu um erro. Tente novamente!!!");
         }
     }
 }
