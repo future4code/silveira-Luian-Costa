@@ -1,0 +1,15 @@
+POST http://localhost:3003/payment/credit-card
+Content-Type: application/json
+
+{
+    "client_id": "1",
+    "buyer_name": "Luiao Gabriel Barbosa Costa",
+    "buyer_email": "luiao@email.com",
+    "buyer_cpf": "00100200304",
+    "amount": 10,
+    "payment_type": "creditcard",
+    "card_holder_name": "Luian G B Costa",
+    "card_number": "1234 1234 1234 1234",
+    "card_expiration_date": "03/25",
+    "card_cvv": "001"
+}
