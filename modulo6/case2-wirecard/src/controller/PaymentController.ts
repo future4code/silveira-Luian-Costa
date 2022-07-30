@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { PaymentBusiness } from "../business/PaymentBusiness";
-import { CreditCardDTO } from "../types/CreditCardDTO";
+import { BoletoDTO, CreditCardDTO } from "../types/CreditCardDTO";
 
 export class PaymentController {
     constructor(
@@ -29,6 +29,27 @@ export class PaymentController {
             res.status(201).send({ message: "Pagamento registrado" });
         } catch (error: any) {
             res.status(error.statusCode || 400).send({ message: error.message });
+        }
+    }
+
+    public registerBoletoPayment = async (req: Request, res: Response) => {
+        try {
+            const { client_id, buyer_name, buyer_email, buyer_cpf, amount, payment_type } = req.body
+
+            const input: BoletoDTO = {
+                client_id,
+                buyer_name,
+                buyer_email,
+                buyer_cpf,
+                amount,
+                payment_type
+            }
+
+            await this.paymentBusiness.registerBoletoPayment(input)
+
+            res.status(201).send({ message: "Pagamento registrado" })
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send({ message: error.message })
         }
     }
 }

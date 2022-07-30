@@ -13,3 +13,7 @@ Content-Type: application/json
     "card_expiration_date": "03/25",
     "card_cvv": "001"
 }
+
+###
+POST http://localhost:3003/payment/boleto
+Content-Type: application/json

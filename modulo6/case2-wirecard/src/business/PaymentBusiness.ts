@@ -1,6 +1,6 @@
 import { PaymentData } from "../data/PaymentData";
 import { CustomError } from "../errors/CustomError"
-import { CreditCardDTO } from "../types/CreditCardDTO";
+import { BoletoDTO, CreditCardDTO } from "../types/CreditCardDTO";
 
 export class PaymentBusiness {
     constructor(
@@ -60,6 +60,48 @@ export class PaymentBusiness {
             await this.paymentData.registerCCPayment(newPayment);
         } catch (error: any) {
             throw new CustomError(400, "Ocorreu um erro. Tente novamente!!!");
+        }
+    }
+
+    public registerBoletoPayment = async (input: BoletoDTO) => {
+        try {
+            const { client_id, buyer_name, buyer_email, buyer_cpf, amount, payment_type } = input;
+
+            if (!client_id) {
+                throw new Error("Cliente inexistente.");
+            };
+
+            if (!buyer_name || !buyer_email || !buyer_cpf) {
+                throw new Error("Comprador inválido.");
+            };
+            if (buyer_cpf.length !== 14) {
+                throw new Error("CPF inválido");
+            }
+
+            if (buyer_email.indexOf("@") === -1) {
+                throw new Error("Formato de email inválido.")
+            };
+
+            if (!amount) {
+                throw new Error("Insira o valor do pagamento.");
+            };
+
+            if (payment_type.toUpperCase() !== "BOLETO") {
+                throw new Error("Método de pagamento inválido.");
+            };
+
+            const newPayment: BoletoDTO = {
+                client_id,
+                buyer_name,
+                buyer_email,
+                buyer_cpf,
+                amount,
+                payment_type
+            };
+
+            await this.paymentData.registerBoletoPayment(newPayment);
+        } catch (error: any) {
+            throw new CustomError(400, "Ocorreu um erro. Tente novamente!!!")
         }
     }
 }
