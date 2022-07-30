@@ -47,9 +47,31 @@ export class PaymentController {
 
             await this.paymentBusiness.registerBoletoPayment(input)
 
-            res.status(201).send({ message: "Pagamento registrado" })
+            res.status(201).send({ message: "Pagamento registrado" });
         } catch (error: any) {
-            res.status(error.statusCode || 400).send({ message: error.message })
+            res.status(error.statusCode || 400).send({ message: error.message });
+        }
+    }
+
+    public getCCPayment = async (req: Request, res: Response) => {
+        try {
+            const client_id = req.params.id
+            const result = await this.paymentBusiness.getCCPayment(client_id)
+
+            res.status(200).send(result);
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send({ message: error.message });
+        }
+    }
+
+    public getBoletoPayment = async (req: Request, res: Response) => {
+        try {
+            const client_id = req.params.id
+            const result = await this.paymentBusiness.getBoletoPayment(client_id)
+
+            res.status(200).send(result);
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send({ message: error.message });
         }
     }
 }

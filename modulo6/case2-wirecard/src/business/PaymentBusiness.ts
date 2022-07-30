@@ -59,7 +59,7 @@ export class PaymentBusiness {
 
             await this.paymentData.registerCCPayment(newPayment);
         } catch (error: any) {
-            throw new CustomError(400, "Ocorreu um erro. Tente novamente!!!");
+            throw new CustomError(400, error.message);
         }
     }
 
@@ -101,7 +101,37 @@ export class PaymentBusiness {
 
             await this.paymentData.registerBoletoPayment(newPayment);
         } catch (error: any) {
-            throw new CustomError(400, "Ocorreu um erro. Tente novamente!!!")
+            throw new CustomError(400, error.message)
+        }
+    }
+
+    public getCCPayment = async (client_id: string) => {
+        try {
+            if (!client_id) {
+                throw new Error("Informe o ID corretamente")
+            }
+
+            const result = await this.paymentData.getCCPayment(client_id)
+
+            return result
+
+        } catch (error: any) {
+            throw new CustomError(400, error.message)
+        }
+    }
+
+    public getBoletoPayment = async (client_id: string) => {
+        try {
+            if (!client_id) {
+                throw new Error("Informe o ID corretamente")
+            }
+
+            const result = await this.paymentData.getBoletoPayment(client_id)
+
+            return result
+
+        } catch (error: any) {
+            throw new CustomError(400, error.message)
         }
     }
 }

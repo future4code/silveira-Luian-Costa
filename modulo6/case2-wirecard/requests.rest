@@ -2,11 +2,11 @@ POST http://localhost:3003/payment/credit-card
 Content-Type: application/json
 
 {
-    "client_id": "1",
+    "client_id": "5",
     "buyer_name": "Luiao Gabriel Barbosa Costa",
     "buyer_email": "luiao@email.com",
     "buyer_cpf": "001.002.003-04",
-    "amount": 10,
+    "amount": 5020,
     "payment_type": "creditcard",
     "card_holder_name": "Luian G B Costa",
     "card_number": "1234 1234 1234 1234",
@@ -17,3 +17,18 @@ Content-Type: application/json
 ###
 POST http://localhost:3003/payment/boleto
 Content-Type: application/json
+
+{
+    "client_id": "2",
+    "buyer_name": "Luiao Gabriel Barbosa Costa",
+    "buyer_email": "luiao@email.com",
+    "buyer_cpf": "001.002.003-04",
+    "amount": 5500,
+    "payment_type": "boleto"
+}
+
+###
+GET http://localhost:3003/payment/credit-card/1
+
+###
+GET http://localhost:3003/payment/boleto/1

@@ -23,4 +23,26 @@ export class PaymentData extends DataBase {
             throw new CustomError(500, error.sqlMessage)
         }
     }
+
+    public getCCPayment = async (client_id: string) => {
+        try {
+            const [result] = await DataBase.connection(this.TABLE_NAME1)
+                .select("*")
+                .where({ client_id })
+            return result
+        } catch (error: any) {
+            throw new CustomError(500, "Pagamento não encontrado")
+        }
+    }
+
+    public getBoletoPayment = async (client_id: string) => {
+        try {
+            const [result] = await DataBase.connection(this.TABLE_NAME2)
+                .select("*")
+                .where({ client_id })
+            return result
+        } catch (error: any) {
+            throw new CustomError(500, "Pagamento não encontrado")
+        }
+    }
 }
