@@ -21,7 +21,7 @@ https://documenter.getpostman.com/view/20353668/Uzs8V3r2
 - Knex.js
 - MySQL 
 
-## Desenvolvedor
+## 🧑‍💻 Desenvolvedor
 
 <table>
   <tr>
