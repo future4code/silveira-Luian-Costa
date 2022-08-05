@@ -1,0 +1,7 @@
+POST http://localhost:3003/competition/create
+Content-Type: application/json
+
+{
+    "competicao":"Dardo final",
+    "status":"Finalizada"
+}
