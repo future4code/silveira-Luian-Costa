@@ -15,3 +15,4 @@ const competitionController = new CompetitionController(competitionBusiness)
 
 competitionRouter.post("/create", competitionController.createCompetition)
 competitionRouter.put("/edit/:id", competitionController.editCompetitionStatus)
+competitionRouter.get("/get", competitionController.getAllCompetitions)

@@ -37,4 +37,14 @@ export class CompetitionController {
             res.status(error.statusCode || 400).send({ message: error.message })
         }
     }
+
+    public getAllCompetitions = async (req: Request, res: Response) => {
+        try {
+            const result = await this.competitionBusiness.getAllCompetitions()
+
+            res.status(200).send(result)
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send({ message: error.message })
+        }
+    }
 }

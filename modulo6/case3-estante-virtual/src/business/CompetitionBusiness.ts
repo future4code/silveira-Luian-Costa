@@ -44,12 +44,21 @@ export class CompetitionBusiness {
             }
 
             const alreadyExist = await this.competitionData.getCompetitionById(id)
-            
-            if(!alreadyExist){
+
+            if (!alreadyExist) {
                 throw new CustomError(400, "Competição inexistente!")
             }
 
             await this.competitionData.editCompetitionStatus(status, id)
+        } catch (error: any) {
+            throw new CustomError(400, error.message);
+        }
+    }
+
+    public getAllCompetitions = async () => {
+        try {
+            const result = await this.competitionData.getAllCompetitions()
+            return result
         } catch (error: any) {
             throw new CustomError(400, error.message);
         }
