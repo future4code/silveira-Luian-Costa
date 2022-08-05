@@ -10,6 +10,7 @@ export class CompetitionBusiness {
     ) {
 
     }
+
     public createCompetition = async (input: CompetitionDTO) => {
         try {
             const { competicao, status } = input
@@ -31,6 +32,24 @@ export class CompetitionBusiness {
             }
 
             await this.competitionData.createCompetition(newCompetition)
+        } catch (error: any) {
+            throw new CustomError(400, error.message);
+        }
+    }
+
+    public editCompetitionStatus = async (status: string, id: string) => {
+        try {
+            if (!status || !id) {
+                throw new CustomError(422, "Preencha corretamente o parâmetro de pesquisa");
+            }
+
+            const alreadyExist = await this.competitionData.getCompetitionById(id)
+            
+            if(!alreadyExist){
+                throw new CustomError(400, "Competição inexistente!")
+            }
+
+            await this.competitionData.editCompetitionStatus(status, id)
         } catch (error: any) {
             throw new CustomError(400, error.message);
         }

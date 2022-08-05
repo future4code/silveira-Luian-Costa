@@ -2,6 +2,14 @@ POST http://localhost:3003/competition/create
 Content-Type: application/json
 
 {
-    "competicao":"Dardo final",
-    "status":"Finalizada"
+    "competicao":"100m Rasos",
+    "status":"Em Andamento"
+}
+
+###
+PUT http://localhost:3003/competition/edit/4e1ebb46-90da-4ebb-8895-e623e136a552
+Content-Type: application/json
+
+{
+    "status": "Em Andamento"
 }

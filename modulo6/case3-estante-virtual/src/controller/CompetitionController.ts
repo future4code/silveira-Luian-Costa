@@ -24,4 +24,17 @@ export class CompetitionController {
             res.status(error.statusCode || 400).send({ message: error.message })
         }
     }
+
+    public editCompetitionStatus = async (req: Request, res: Response) => {
+        try {
+            const { status } = req.body
+            const id = req.params.id
+
+            await this.competitionBusiness.editCompetitionStatus(status, id)
+
+            res.status(200).send({ message: "Status alterado com sucesso!" })
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send({ message: error.message })
+        }
+    }
 }
