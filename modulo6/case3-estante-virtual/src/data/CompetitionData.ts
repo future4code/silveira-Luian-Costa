@@ -4,6 +4,7 @@ import { DataBase } from "./DataBase"
 
 export class CompetitionData extends DataBase {
     protected TABLE_NAME = "competicao"
+    protected TABLE_NAM2 = "resultados"
 
     public createCompetition = async (newCompetition: newCompetition) => {
         try {

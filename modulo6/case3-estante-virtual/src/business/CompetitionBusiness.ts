@@ -7,9 +7,7 @@ export class CompetitionBusiness {
     constructor(
         private idGenerator: IdGenerator,
         private competitionData: CompetitionData
-    ) {
-
-    }
+    ) { }
 
     public createCompetition = async (input: CompetitionDTO) => {
         try {
