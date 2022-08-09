@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { CompetitionBusiness } from "../business/CompetitionBusiness";
 import { CompetitionDTO } from "../types/CompetitionDTO";
+import { ResultDTO } from "../types/ResultDTO";
 
 export class CompetitionController {
   constructor(
@@ -46,4 +47,23 @@ export class CompetitionController {
       res.status(error.statusCode || 400).send({ message: error.message });
     }
   };
+
+  public registerResult = async (req: Request, res: Response) => {
+    try {
+      const { competicao_id, atleta, value, unidade } = req.body
+
+      const input: ResultDTO = {
+        competicao_id,
+        atleta,
+        value,
+        unidade
+      }
+
+      await this.competitionBusiness.registerResult(input)
+
+      res.status(200).send({ message: "Resultado registrado com sucesso!" });
+    } catch (error: any) {
+      res.status(error.statusCode || 400).send({ message: error.message });
+    }
+  }
 }

@@ -2,6 +2,7 @@ import { CompetitionData } from "../data/CompetitionData";
 import { CustomError } from "../errors/CustomError";
 import { IdGenerator } from "../services/IdGenerator";
 import { CompetitionDTO, newCompetition } from "../types/CompetitionDTO";
+import { ResultDTO } from "../types/ResultDTO";
 
 export class CompetitionBusiness {
     constructor(
@@ -59,6 +60,38 @@ export class CompetitionBusiness {
             return result
         } catch (error: any) {
             throw new CustomError(400, error.message);
+        }
+    }
+
+    public registerResult = async (input: ResultDTO) => {
+        try {
+            const { competicao_id, atleta, value, unidade } = input
+
+            if (!competicao_id || !atleta || !value || !unidade) {
+                throw new Error("Preencha corretamente os campos")
+            }
+
+            if (unidade.length !== 1) {
+                throw new Error("Preencha corretamente os campos")
+            }
+
+            const alreadyExist = await this.competitionData.getCompetitionById(competicao_id)
+
+            if (!alreadyExist) {
+                throw new Error("A competição indicada não existe. Tente novamente!")
+            }
+
+            const newResult = {
+                competicao_id,
+                atleta,
+                value,
+                unidade
+            }
+
+            await this.competitionData.registerResult(newResult)
+
+        } catch (error: any) {
+            throw new CustomError(400, error.message)
         }
     }
 }

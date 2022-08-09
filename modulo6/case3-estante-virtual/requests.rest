@@ -2,7 +2,7 @@ POST http://localhost:3003/competition/create
 Content-Type: application/json
 
 {
-    "competicao":"100m Rasos",
+    "competicao":"Dardo semifinal",
     "status":"Em Andamento"
 }
 
@@ -13,3 +13,10 @@ Content-Type: application/json
 {
     "status": "Em Andamento"
 }
+
+###
+GET http://localhost:3003/competition/get
+
+###
+POST http://localhost:3003/competition/register-result
+Content-Type: application/application/json

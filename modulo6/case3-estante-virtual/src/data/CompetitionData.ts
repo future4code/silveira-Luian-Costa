@@ -1,10 +1,11 @@
 import { CustomError } from "../errors/CustomError"
 import { newCompetition } from "../types/CompetitionDTO"
+import { ResultDTO } from "../types/ResultDTO"
 import { DataBase } from "./DataBase"
 
 export class CompetitionData extends DataBase {
     protected TABLE_NAME = "competicao"
-    protected TABLE_NAM2 = "resultados"
+    protected TABLE_NAME2 = "resultados"
 
     public createCompetition = async (newCompetition: newCompetition) => {
         try {
@@ -42,6 +43,15 @@ export class CompetitionData extends DataBase {
             const result = await DataBase.connection(this.TABLE_NAME)
                 .select("*")
             return result
+        } catch (error: any) {
+            throw new CustomError(500, error.sqlMessage)
+        }
+    }
+
+    public registerResult = async (newResult: ResultDTO) => {
+        try {
+            await DataBase.connection(this.TABLE_NAME2)
+                .insert(newResult)
         } catch (error: any) {
             throw new CustomError(500, error.sqlMessage)
         }
