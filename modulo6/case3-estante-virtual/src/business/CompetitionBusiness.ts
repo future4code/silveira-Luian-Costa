@@ -94,4 +94,14 @@ export class CompetitionBusiness {
             throw new CustomError(400, error.message)
         }
     }
+
+    public getResult = async () => {
+        try {
+            const result = await this.competitionData.getResults()
+
+            return result
+        } catch (error: any) {
+            throw new CustomError(400, error.message)
+        }
+    }
 }
