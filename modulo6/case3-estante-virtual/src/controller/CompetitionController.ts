@@ -76,4 +76,16 @@ export class CompetitionController {
       res.status(error.statusCode || 400).send({ message: error.message });
     }
   }
+
+  public getCompetitionResult = async (req: Request, res: Response) => {
+    try {
+      const id = req.params.id as any
+
+      const result = await this.competitionBusiness.getCompetitionResult(id)
+
+      res.status(200).send(result);
+    } catch (error: any) {
+      res.status(error.statusCode || 400).send({ message: error.message });
+    }
+  }
 }

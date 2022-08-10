@@ -104,4 +104,17 @@ export class CompetitionBusiness {
             throw new CustomError(400, error.message)
         }
     }
+
+    public getCompetitionResult = async (id: string) => {
+        try {
+            if (!id) {
+                throw new Error("Insiria corretamento o id da competição.")
+            }
+
+            const result = await this.competitionData.getCompetitionResult(id)
+            return result
+        } catch (error: any) {
+            throw new CustomError(400, error.message)
+        }
+    }
 }

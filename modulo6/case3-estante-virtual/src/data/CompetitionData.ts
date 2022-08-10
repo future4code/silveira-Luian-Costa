@@ -66,4 +66,15 @@ export class CompetitionData extends DataBase {
             throw new CustomError(500, error.sqlMessage)
         }
     }
+
+    public getCompetitionResult = async (id: string) => {
+        try {
+            const result = await DataBase.connection(this.TABLE_NAME2)
+                .select("*")
+                .where({ competicao_id: id })
+            return result
+        } catch (error: any) {
+            throw new CustomError(500, error.sqlMessage)
+        }
+    }
 }

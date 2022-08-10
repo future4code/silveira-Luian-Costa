@@ -19,4 +19,17 @@ GET http://localhost:3003/competition/get
 
 ###
 POST http://localhost:3003/competition/register-result
-Content-Type: application/application/json
+Content-Type: application/json
+
+{
+    "competicao_id": "4e1ebb46-90da-4ebb-8895-e623e136a552",
+    "atleta": "Luiao Silva",
+    "value": 100,
+    "unidade": "s"
+}
+
+###
+GET http://localhost:3003/competition/results
+
+###
+GET http://localhost:3003/competition/result?competicao_id=4e1ebb46-90da-4ebb-8895-e623e136a552
