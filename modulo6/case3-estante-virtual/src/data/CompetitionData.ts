@@ -59,7 +59,7 @@ export class CompetitionData extends DataBase {
 
     public getResults = async () => {
         try {
-            const [result] = await DataBase.connection(this.TABLE_NAME2)
+            const result = await DataBase.connection(this.TABLE_NAME2)
                 .select("*")
             return result
         } catch (error: any) {
