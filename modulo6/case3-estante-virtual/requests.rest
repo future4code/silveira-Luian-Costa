@@ -32,4 +32,4 @@ Content-Type: application/json
 GET http://localhost:3003/competition/results
 
 ###
-GET http://localhost:3003/competition/result?competicao_id=4e1ebb46-90da-4ebb-8895-e623e136a552
+GET http://localhost:3003/competition/result/4e1ebb46-90da-4ebb-8895-e623e136a552
