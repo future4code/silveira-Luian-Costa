@@ -1,0 +1,22 @@
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Luiao C.",
+    "email": "luiao@email.com",
+    "password": "senhasegura"
+}
+
+###
+
+# @name login
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+    {
+        "email": "luiao@email.com",
+        "password": "senhasegura"
+    }
+
+###
+@token = {{login.response.body.token}}
