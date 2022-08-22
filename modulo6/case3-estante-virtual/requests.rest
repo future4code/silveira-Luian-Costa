@@ -1,0 +1,35 @@
+POST http://localhost:3003/competition/create
+Content-Type: application/json
+
+{
+    "competicao":"Dardo semifinal",
+    "status":"Em Andamento"
+}
+
+###
+PUT http://localhost:3003/competition/edit/4e1ebb46-90da-4ebb-8895-e623e136a552
+Content-Type: application/json
+
+{
+    "status": "Em Andamento"
+}
+
+###
+GET http://localhost:3003/competition/get
+
+###
+POST http://localhost:3003/competition/register-result
+Content-Type: application/json
+
+{
+    "competicao_id": "4e1ebb46-90da-4ebb-8895-e623e136a552",
+    "atleta": "Luiao Silva",
+    "value": 100,
+    "unidade": "s"
+}
+
+###
+GET http://localhost:3003/competition/results
+
+###
+GET http://localhost:3003/competition/result/4e1ebb46-90da-4ebb-8895-e623e136a552
