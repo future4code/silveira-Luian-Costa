@@ -2,9 +2,9 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
     {
-        "name": "Luiao C.",
-        "email": "luiao@email.com",
-        "password": "senhasegura"
+        "name": "Gabriel Veloso",
+        "email": "blizze@email.com",
+        "password": "alfredo"
     }
 
 ###
@@ -14,23 +14,38 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
     {
-        "email": "luiao@email.com",
-        "password": "senhasegura"
+        "email": "blizze@email.com",
+        "password": "alfredo"
     }
 
 ###
 @token = {{login.response.body.token}}
 
+###
 POST http://localhost:3003/dogwalking/insert
-Content-Type: application/application/json
+Content-Type: application/json
 authorization: {{token}}
 
     {
-        "date": "22/12/2022",
-        "duration": "30",
+        "date": "12/12/2025",
+        "duration": "60",
         "latitude": 23.5489,
         "longitude": 46.6388,
-        "pets": 3,
         "start_time": "14:00",
-        "end_time": "14:30",
+        "end_time": "15:00",
+        "pets": 1
+    }
+
+###
+GET http://localhost:3003/dogwalking/792fa2f2-5a0e-426d-b2b4-aea9059cf6a2
+authorization: {{token}}
+
+###
+PUT http://localhost:3003/dogwalking/edit
+Content-Type: application/json
+authorization: {{token}} 
+
+    {
+        "id": "792fa2f2-5a0e-426d-b2b4-aea9059cf6a2",
+        "status": "done"
     }

@@ -16,3 +16,5 @@ const dogWalkingBusiness = new DogWalkingBusiness(
 const dogWalkingController = new DogWalkingController(dogWalkingBusiness)
 
 dogRouter.post("/insert", dogWalkingController.insertDogWalking)
+dogRouter.get("/:id", dogWalkingController.getDogWalking)
+dogRouter.put("/edit", dogWalkingController.updateDogWalkingStatus)
