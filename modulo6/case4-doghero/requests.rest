@@ -1,11 +1,11 @@
 POST http://localhost:3003/users/signup
 Content-Type: application/json
 
-{
-    "name": "Luiao C.",
-    "email": "luiao@email.com",
-    "password": "senhasegura"
-}
+    {
+        "name": "Luiao C.",
+        "email": "luiao@email.com",
+        "password": "senhasegura"
+    }
 
 ###
 
@@ -20,3 +20,17 @@ Content-Type: application/json
 
 ###
 @token = {{login.response.body.token}}
+
+POST http://localhost:3003/dogwalking/insert
+Content-Type: application/application/json
+authorization: {{token}}
+
+    {
+        "date": "22/12/2022",
+        "duration": "30",
+        "latitude": 23.5489,
+        "longitude": 46.6388,
+        "pets": 3,
+        "start_time": "14:00",
+        "end_time": "14:30",
+    }
